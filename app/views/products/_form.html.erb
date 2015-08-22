@@ -1,0 +1,43 @@
+<div class = "form_width">
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div class="alert alert-danger">
+      <p><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</p>
+
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name ,class: "form-control"%>
+  </div>
+  <div class = "form-group">
+    <%= f.label :product_type %><br>
+    <%= f.text_field :product_type, class: "form-control"  %> 
+  </div>
+  <div class = "form-group">
+    <%= f.label :units  %><br>
+    <%= f.select(:units, ["Rolls","KG","Bottles"],class: "form-control") %>
+  </div>
+  <div class = "form-group">
+    <%= f.label :number_of_items_or_Weight_of_product %>
+    <%= f.text_field :quantity ,class: "form-control"%>
+  </div>
+  <div class = "form-group">
+    <%= f.label :unit_purchase_price_per_item %>
+    <%= f.text_field :purchase_price,class: "form-control" %>
+  </div>
+  <div class = "form-group">
+    <%= f.label :shop_price %>
+    <%= f.text_field :shop_price, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
+</div>

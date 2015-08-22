@@ -1,0 +1,53 @@
+<h1>Inventory Listing</h1>
+
+<div class="table-responsive">
+<table class = "table table-hover table-striped">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Product Type</th>
+    <th>Units of measure</th>
+    <th>Quantity</th>
+    <th>Unit Price</th>
+    <th>Total Purchase cost</th>
+  </tr>
+</thead>
+
+<tbody>
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.product_type %></td>
+      <td><%= product.units %></td>
+      <td><%= product.quantity %></td>
+      <td><%= number_to_currency(product.purchase_price,:precision => 0,:unit => "KES",:format => "%u %n") %></td>
+      <td><%= number_to_currency(product.total_price,:precision => 0,:unit => "KES",:format => "%u %n") %></td>
+      <td><%= link_to 'Show', product %></td>
+      <td><%= link_to 'Edit', edit_product_path(product) %></td>
+
+      <%= admins_only do %>
+      <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <%end%>
+    </tr>
+
+
+  <% end %>
+</tbody>
+</table>
+</div>
+
+<div class = 'panel panel-default'>
+<div class = "panel-heading">
+  <h3 class = "panel-title">Total expense</h3>
+</div>
+<div class = "panel-body">
+  <p>Total cost for entire inventory: <strong><%= number_to_currency(@total_sum,:precision => 0,:unit => "KES",:format => "%u %n") %></strong></p>
+</div>
+</div>
+
+
+
+<br>
+
+<%= link_to 'New Product', new_product_path,class: "btn btn-success" %>
+

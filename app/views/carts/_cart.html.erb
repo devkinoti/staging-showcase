@@ -1,0 +1,11 @@
+<table class = "table">
+	<%= render(@cart.line_items) %>
+
+	<tr>
+		<td>Total</td>
+		<td><%= number_to_currency(@cart.total_price,:precision => 0,:unit => "KES",
+		:format => "%u %n")%></td>
+	</tr>
+</table>
+
+<%= button_to "Empty Cart", @cart, method: :delete,class: "btn btn-danger" ,data: {confirm: "Are you sure?"} %>
