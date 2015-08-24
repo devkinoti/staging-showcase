@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<% @order.line_items.each do |item| %>
+<div>
+	<%= item.product.name %>
+	<%= item.product.shop_price %>
+	<%= item.quantity %>
+	<%= number_to_currency(item.total_price,:precision => 0,:unit => "KES",:format => "%u %n") %>
+	<% item.product.remove_from_inventory!(item.quantity) %>
+</div>
+<%end%>
+
+<p>
+  <strong>Paid:</strong>
+  <%= @order.paid %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

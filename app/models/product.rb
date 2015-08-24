@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
 	has_many :line_items
-
+	has_many :orders, through: :line_items
 	before_destroy :ensure_not_referenced_by_any_line_item
 	validates :name, presence: true
 
@@ -13,8 +13,11 @@ class Product < ActiveRecord::Base
 		self.purchase_price * self.quantity
 	end
 
-	def total_expense
+	def remove_from_inventory!(qty)
+		self.quantity = self.quantity - qty
+		save
 	end
+
 
 	private
 
