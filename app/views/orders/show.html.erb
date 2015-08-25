@@ -1,4 +1,4 @@
-<h3> Order Number <%= @order.id %></h3>
+<h3> Order #<%= @order.id %></h3>
 <table class = "table table-hover table-striped">
 	<thead>
 		<tr>
@@ -24,7 +24,6 @@
 				<%end%>
 			</td>
 		</tr>
-		<% item.product.remove_from_inventory!(item.quantity) %>
 		<%end%>
 	</tbody>
 </table>

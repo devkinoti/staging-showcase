@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
   before_action :set_cart, only: [:new, :create]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
+
   # GET /orders
   # GET /orders.json
   def index
@@ -39,6 +40,9 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
+        # Product.calculate_stock_quantity(@order)
+        #check here
+        #Product.remove_from_stock(@order) 
         format.html { redirect_to @order, notice: 
           'Order created successfully.' }
         format.json { render action: 'show', status: :created,
@@ -49,6 +53,7 @@ class OrdersController < ApplicationController
           status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /orders/1
@@ -75,6 +80,8 @@ class OrdersController < ApplicationController
     end
   end
 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
@@ -85,5 +92,7 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:paid)
     end
+
+
   #...
 end

@@ -13,11 +13,16 @@ class Product < ActiveRecord::Base
 		self.purchase_price * self.quantity
 	end
 
-	def remove_from_inventory!(qty)
+	def remove_from_stock!(qty)
 		self.quantity = self.quantity - qty
 		save
 	end
 
+	# def check_stock_quantity(qty)
+	# 	if qty > self.quantity
+	# 		false
+	# 	end
+	# end
 
 	private
 
