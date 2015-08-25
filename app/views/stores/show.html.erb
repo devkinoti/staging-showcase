@@ -20,7 +20,7 @@
 		<% @products.each do |product| %>
 		<div class = "col-sm-4 col-lg-4 col-md-4">
 			<div class ="thumbnail">
-				<img src = "http://placehold.it/320x150" alt>
+				<%= image_tag "320.png" %>
 				<div class = "caption">
 					<h4><%= product.name %></h4>
 					<h4 class = "pull-right"><%= number_to_currency(product.shop_price,:precision => 0,:unit => "KES",:format => "%u %n") %></h4>
