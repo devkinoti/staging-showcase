@@ -20,11 +20,16 @@
 		<% @products.each do |product| %>
 		<div class = "col-sm-4 col-lg-4 col-md-4">
 			<div class ="thumbnail">
-				<%= image_tag "tp.png" %>
+				<%= image_tag "320.png" %>
 				<div class = "caption">
 					<h4><%= product.name %></h4>
 					<% if product.quantity == 0 %>
-					<span class = "glyphicon glyphicon-exclamation-sign"></span>
+					<ul class = "list-group">
+						<li class = "list-group-item">
+							<span class = "badge"><span class = "glyphicon glyphicon-exclamation-sign"></span></span>
+							Out of Stock
+						</li>
+					</ul>
 					<%else%>
 					<h4 class = "pull-right"><%= number_to_currency(product.shop_price,:precision => 0,:unit => "KES",:format => "%u %n") %></h4>
 					<p><%= button_to "Add to cart",line_items_path(product_id: product),remote: true,class: "btn btn-success" %></p>
