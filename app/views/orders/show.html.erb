@@ -15,7 +15,7 @@
 		<tr>
 			<td><%= item.product.name %></td>
 			<td><%= item.quantity %></td>
-			<td><%= item.product.shop_price %></td>
+			<td><%= number_to_currency(item.product.shop_price,:precision => 0,:unit => "KES",:format => "%u %n") %></td>
 			<td><%= number_to_currency(item.total_price,:precision => 0,:unit => "KES",:format => "%u %n") %></td>
 			<td><% if @order.paid %> 
 				<strong><p id = "paid">Paid</p></strong>
@@ -27,11 +27,6 @@
 		<%end%>
 	</tbody>
 </table>
-
-
-
-
-
 
 <%= link_to 'Return to SBS Shop', store_path %> |
 <%= link_to 'View All the orders', orders_path %>
