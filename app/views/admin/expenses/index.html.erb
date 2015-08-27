@@ -1,0 +1,23 @@
+<h2> Expenses </h2>
+
+<div>
+<% @expenses.each do |expense| %>
+	<div>
+		<%= expense.account_type %>
+	</div>
+	<div>
+		<%= expense.description %>
+	</div>
+	<div>
+		<%= expense.amount %>
+	</div>
+	<div>
+		<%= link_to "Edit expense",edit_admin_expense_path(expense) %>
+		<%= link_to "Delete",[:admin ,expense], method: :delete, data: {confirm: "Are you sure?"} %>
+	</div>
+	<br>
+<%end%>
+</div>
+<br>
+
+<p><%= link_to "Add new Expense", new_admin_expense_path %></p>
