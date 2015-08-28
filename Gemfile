@@ -30,6 +30,7 @@ gem 'rails_12factor', group: :production
 gem 'thin'
 #auth
 gem 'devise'
+gem 'chart-js-rails'
 
 
 # Use ActiveModel has_secure_password
