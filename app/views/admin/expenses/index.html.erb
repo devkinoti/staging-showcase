@@ -1,23 +1,27 @@
 <h2> Expenses </h2>
 
-<div>
-<% @expenses.each do |expense| %>
-	<div>
-		<%= expense.account_type %>
-	</div>
-	<div>
-		<%= expense.description %>
-	</div>
-	<div>
-		<%= expense.amount %>
-	</div>
-	<div>
-		<%= link_to "Edit expense",edit_admin_expense_path(expense) %>
-		<%= link_to "Delete",[:admin ,expense], method: :delete, data: {confirm: "Are you sure?"} %>
-	</div>
-	<br>
-<%end%>
-</div>
-<br>
+<table class = "table table-hover table-striped">
+	<thead>
+		<tr>
+			<th>Expense type</th>
+			<th>Expense Description</th>
+			<th>Expense Amount</th>
+		</tr>
+	</thead>
 
-<p><%= link_to "Add new Expense", new_admin_expense_path %></p>
+	<tbody>
+		<% @expenses.each do |expense| %>
+		<tr>
+			<td><%= expense.account_type %></td>
+			<td><%= expense.description %></td>
+			<td><%= number_to_currency(expense.amount, :precision => 0,:unit => "KES",:format => "%u %n") %></td>
+		    <td><%= link_to "Edit expense",edit_admin_expense_path(expense) %></td>
+		    <td><%= link_to "Delete",[:admin ,expense], method: :delete, data: {confirm: "Are you sure?"} %></td>
+		    <%end%>
+		</tr>
+	</tbody>
+
+</table>
+
+
+<p><%= link_to "Add new Expense", new_admin_expense_path,class: "btn btn-primary" %></p>
