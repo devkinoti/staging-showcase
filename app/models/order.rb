@@ -25,4 +25,6 @@ class Order < ActiveRecord::Base
     		item.product.shop_price * item.quantity
     	end
     end
+
+
 end

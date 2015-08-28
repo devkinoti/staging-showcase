@@ -4,6 +4,7 @@ class Admin::ExpensesController < ApplicationController
 	layout "admin/admin"
 	def index
 		@expenses = Expense.all
+		@total_expenses = Expense.sum("amount")
 	end
 
 	def new

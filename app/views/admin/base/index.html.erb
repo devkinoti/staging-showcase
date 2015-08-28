@@ -1,1 +1,20 @@
+<h3>SBS shop</h3>
+<p><%= Time.now.strftime("%d-%b-%Y") %></p>
 
+<h2>Expenses</h2>
+
+<div>
+	<p><%= number_to_currency(@total_expenses,:precision => 0,:unit => "Ksh",:format => "%u %n") %></p>
+</div>
+
+
+
+<h2> Income</h2>
+<div>
+	<p><%= number_to_currency(@total_income,:precision => 0,:unit => "Ksh",:format => "%u %n") %></p>
+</div>
+
+<h2>Profit and loss </h2>
+<div>
+	<p><%= number_to_currency(@profit,:precision => 0,:unit => "Ksh",:format => "%u %n") %></p>
+</div>
