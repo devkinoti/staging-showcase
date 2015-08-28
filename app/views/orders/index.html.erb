@@ -5,6 +5,8 @@
     <tr>
       <th>Order id</th>
       <th>Paid Status</th>
+      <th>Time Of order</th>
+      <th>Amount</th>
     </tr>
   </thead>
 
@@ -19,11 +21,18 @@
           <strong><p id = "not_paid">Not Paid</p></strong>
           <%end%>
         </td>
+        <td>
+          <%= order.created_at.strftime("%d-%b-%Y %H:%M") %>
+        </td>
+        <td>
+          <% order.line_items.each do |item| %>
+          <%= number_to_currency(item.total_price,:precision => 0,:unit => "KES",:format => "%u %n") %>
+          <%end%>
+        </td>
 
 
         <%= admins_only do %>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
+        <td><%= link_to 'View Order Details', order %></td>
         <%end%>
       </tr>
     <% end %>
