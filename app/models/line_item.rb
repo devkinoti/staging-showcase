@@ -7,5 +7,8 @@ class LineItem < ActiveRecord::Base
   	product.shop_price * quantity
   end
 
+  # def total
+  # 	Array(product).sum { |item| item.total_price }
+  # end
 
 end

@@ -19,4 +19,10 @@ class Order < ActiveRecord::Base
         item.product.remove_from_stock!(item.quantity)
       end
     end
+
+    def order_price
+    	Array(line_items).sum do |item|
+    		item.product.shop_price * item.quantity
+    	end
+    end
 end
