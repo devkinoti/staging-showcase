@@ -19,6 +19,8 @@
           <strong><p id = "not_paid">Not Paid</p></strong>
           <%end%>
         </td>
+
+
         <%= admins_only do %>
         <td><%= link_to 'Show', order %></td>
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
