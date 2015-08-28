@@ -1,6 +1,7 @@
 class Admin::ExpensesController < ApplicationController
 	before_action :authorize_admin!
 	before_action :find_expense, :only => [:edit,:update,:destroy]
+	layout "admin/admin"
 	def index
 		@expenses = Expense.all
 	end
