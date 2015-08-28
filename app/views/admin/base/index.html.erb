@@ -28,7 +28,11 @@
     <h3 class="panel-title">Profit and Loss</h3>
   </div>
   <div class="panel-body">
-  	<h4><%= number_to_currency(@profit,:precision => 0,:unit => "Ksh",:format => "%u %n") %></h4>
+  	<% if @profit > 0 %>
+  	<h4 id = "profit"><%= number_to_currency(@profit,:precision => 0,:unit => "Ksh",:format => "%u %n") %></h4>
+  	<% else %>
+  	<h4 id = "loss"><%= number_to_currency(@profit,:precision => 0,:unit => "Ksh",:format => "%u %n") %></h4>
+  	<%end%>
   </div>
 </div>
 
