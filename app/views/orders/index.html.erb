@@ -24,11 +24,11 @@
         <td>
           <%= order.created_at.strftime("%d-%b-%Y %H:%M") %>
         </td>
-        <td>
+        <!--<td>
           <% order.line_items.each do |item| %>
           <%= number_to_currency(item.total_price,:precision => 0,:unit => "KES",:format => "%u %n") %>
           <%end%>
-        </td>
+        </td>-->
 
 
         <%= admins_only do %>
