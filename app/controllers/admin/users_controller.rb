@@ -1,5 +1,6 @@
 class Admin::UsersController < Admin::BaseController
 	before_action :find_user, :only => [:show,:edit,:update,:destroy]
+  layout "admin/admin"
   def index
   	@users = User.all
   end
