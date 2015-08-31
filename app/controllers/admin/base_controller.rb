@@ -5,7 +5,7 @@ class Admin::BaseController < ApplicationController
 
 	def index
 		@total_expenses = Expense.sum("amount")
-		@orders = ::Order.all
+		@orders = ::Order.all.where(:paid => true)
 
 		@total_income = Array(@orders).sum { |order| order.order_price }
 
@@ -13,7 +13,7 @@ class Admin::BaseController < ApplicationController
 	end
 
 	def sales
-		@orders = ::Order.all
+		@orders = ::Order.all.where(:paid => true)
 		@total_orders = Array(@orders).sum { |order| order.order_price }
 	end
 
