@@ -15,8 +15,8 @@
 		<tr>
 			<td><%= item.product.name %></td>
 			<td><%= item.quantity %></td>
-			<td><%= number_to_currency(item.product.shop_price,:precision => 0,:unit => "KES",:format => "%u %n") %></td>
-			<td><%= number_to_currency(item.total_price,:precision => 0,:unit => "KES",:format => "%u %n") %></td>
+			<td><%= number_to_currency(item.product.shop_price,:precision => 0,:unit => "Ksh",:format => "%u %n") %></td>
+			<td><%= number_to_currency(item.total_price,:precision => 0,:unit => "Ksh",:format => "%u %n") %></td>
 			<td><% if @order.paid %> 
 				<strong><p id = "paid">Paid</p></strong>
 				<%else%>
@@ -27,6 +27,15 @@
 		<%end%>
 	</tbody>
 </table>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Income From Shop</h3>
+  </div>
+  <div class="panel-body">
+    <h4><%= number_to_currency(@order.order_price ,:precision => 0,:unit => "Ksh",:format => "%u %n") %></h4>
+  </div>
+</div>
 
 <%= link_to 'Return to SBS Shop', store_path %> |
 <%= link_to 'View All the orders', orders_path %>

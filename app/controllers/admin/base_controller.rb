@@ -12,5 +12,10 @@ class Admin::BaseController < ApplicationController
 		@profit = @total_income - @total_expenses
 	end
 
+	def sales
+		@orders = ::Order.all
+		@total_orders = Array(@orders).sum { |order| order.order_price }
+	end
+
 
 end
