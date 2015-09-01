@@ -30,6 +30,8 @@ gem 'thin'
 #auth
 gem 'devise'
 gem 'chart-js-rails'
+gem 'prawn'
+gem 'prawn-table'
 
 
 # Use ActiveModel has_secure_password

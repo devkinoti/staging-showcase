@@ -37,5 +37,7 @@
   </div>
 </div>
 
+<p><%= link_to "Printable Receipt (PDF)",order_path(@order,:format => "pdf") %></p>
+
 <%= link_to 'Return to SBS Shop', store_path %> |
 <%= link_to 'View All the orders', orders_path %>

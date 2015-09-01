@@ -13,7 +13,14 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-    
+    respond_to do |format|
+      format.html
+      format.pdf do 
+        pdf = OrderPdf.new(@order,view_context)
+        send_data pdf.render,:filename => "order_#{@order.id}",
+                             :type => "application/pdf"
+      end
+    end   
   end
 
   # GET /orders/new
