@@ -1,5 +1,22 @@
 <h3>Complete the New order</h3>
 
+<table class = "table">
+	<% @cart.line_items.each do |line_item| %>
+	<tr>
+	<td><%= line_item.product.name %> &times; <%= line_item.quantity %></td>
+	<td><%= number_to_currency(line_item.total_price,:precision => 0,:unit => "Ksh",
+				:format => "%u %n") %></td>
+	<%end%>
+    </tr>
+
+	<tr>
+		<td>Total</td>
+		<td><%= number_to_currency(@cart.total_price,:precision => 0,:unit => "Ksh",
+		:format => "%u %n")%></td>
+	</tr>
+</table>
+
+
 <p> Have the products been paid for? </p>
 <%= render 'form' %>
 
