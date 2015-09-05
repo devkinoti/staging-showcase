@@ -8,8 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<%= render "application/navigation"%>
-
+	<%= render "application/navigation" %>
 	<div class = "container">
 		<%if notice %>
 		<div class = "alert alert-success"><%= notice %></div>
@@ -19,9 +18,7 @@
 		<%end%>
 	</div>
 
-	<div class = "container">
-		<%= yield %>
-	</div>
+	<%= yield %>
 
 </body>
 </html>

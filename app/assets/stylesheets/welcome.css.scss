@@ -14,20 +14,34 @@
 body{
 	width:100%;
 	height:100%;
-	background: image-url("sample_7_two.png") no-repeat center center fixed; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+	background-color: #E6D2BC;
+	background-image:image-url("bg_2.png");
 }
 
-html{
-	width:100%;
-	height:100%;
+header .intro-content{
+	position:fixed;
+	top:40%;
+	left:50%;
+	transform:translate(-50%,-50%);
+}
 
+
+.btn-lg{
+	margin-top:40px;
+}
+
+footer{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 5px;
+  text-align: center;
+  color:rgba(101,67,33,1);
 
 }
 
+/*
 .navbar-custom{
 	margin-bottom:0;
 	text-transform: uppercase;
@@ -60,18 +74,9 @@ html{
 	background-color:#d84c4c;
 }
 
+*/
 
 
-header .intro-content{
-	position:fixed;
-	top:40%;
-	left:50%;
-	transform:translate(-50%,-50%);
-}
-
-.btn-lg{
-	margin-top:20px;
-}
 
 
 

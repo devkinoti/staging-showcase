@@ -1,3 +1,7 @@
+<div class = "logo">
+  <%= image_tag "mini_logo.png" %>
+</div>
+
 <div class="col-md-4 col-md-offset-4 well signin">
   <h2>Sign in</h2>
 
@@ -5,14 +9,14 @@
     <div class = "form-group">
       <div class="input-group">
         <%= f.email_field :email, class: 'form-control input-lg', placeholder: 'Email' %>
-        <span class="input-group-addon glyphicon glyphicon-user"></span>
+        <span class="input-group-addon"><span class ="glyphicon glyphicon-user"></span>
       </div>
     </div>
 
     <div class = "form-group">
       <div class="input-group">
         <%= f.password_field :password, class: 'form-control input-lg', placeholder: 'Password' %>
-        <span class="input-group-addon glyphicon glyphicon-lock"></span>
+        <span class="input-group-addon"><span class = "glyphicon glyphicon-lock"></span>
       </div>
     </div>
 
@@ -27,3 +31,7 @@
     <%= render "devise/shared/links" %>
   </div>
 </div>
+
+<footer>
+  <p>Superior base services LTD 2015-2016</p>
+</footer>

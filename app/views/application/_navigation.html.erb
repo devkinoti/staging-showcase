@@ -1,11 +1,9 @@
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
+  <div class="container-fluid"> 
     <div class = "navbar-header">
-      <%= link_to "Superior Base Services LTD",root_path, class: "navbar-brand"%>
+      <p class = "navbar-brand">Superior Base Services LTD</p>
     </div>
-      
       <ul class = "nav navbar-nav">
-
         <% if user_signed_in? %>
         <li><%= link_to "Dashboard" ,dashboard_path %></a></li>
         <li><%= link_to "Store",store_path %></li>
@@ -18,8 +16,6 @@
         <% if user_signed_in? %>
         <li><%= link_to "Sign out", destroy_user_session_path,method: 'delete' %></li>
         <%end%>
-
-        <li>
       </ul>
       </div>
     

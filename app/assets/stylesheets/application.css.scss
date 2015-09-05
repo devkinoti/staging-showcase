@@ -30,6 +30,10 @@
 
 body{
 	padding-top:90px;
+	/*background-color:#E6D2BC;*/
+	background-color:#f5e9dc;
+	margin:20px;
+	background-image:image-url("bg_2.png");
 }
 
 
@@ -37,9 +41,9 @@ body{
 .alert{
 	position:fixed;
 	margin-bottom:20px;
-	top: 47px;
-    left: 0;
-    right: 0;
+	top: 50px;
+    left: 0px;
+    right: 0px;
     z-index: 7000;
 }
 

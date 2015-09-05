@@ -1,17 +1,28 @@
 require 'prawn/table'
 class OrderPdf < Prawn::Document
-	def initialize(order,view,page_size: [200,300])
+	def initialize(order,view,current_user,page_size: [200,300])
 		super(top_margin: 40)
 		@order = order
 		@view = view
+		@current_user = current_user
 		title
 		order_number
 		line_items
 		total_price
+		thanks
 	end
 
 	def title
 		text "Superior Base Services LTD",size: 30,style: :bold
+		move_down 10
+		text "P.O Box 18512-00100"
+		text "Nairobi"
+		text "+254775456876"
+	end
+
+	def thanks
+		move_down 20
+		text "Striving to serve you better"
 	end
 
 	def order_number
@@ -38,7 +49,13 @@ class OrderPdf < Prawn::Document
 
 	def total_price
 		move_down 30
-		text "Total Order Price: #{price(@order.order_price)}",size: 16,style: :bold
+		text "Please pay this amount",size: 16
+		move_down 10
+		text "Total Order Price: #{price(@order.order_price)}",size: 14,style: :bold
+		move_down 20
+		text "Served by #{@current_user.first_name} #{@current_user.last_name}"
+		move_down 10
+		text "#{@order.created_at.strftime("%d-%b-%Y %H:%M")} "
 	end
 
 	def price(num)

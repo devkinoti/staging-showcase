@@ -10,15 +10,15 @@
 #= require Chart
 
 
-flashCallback = ->
-    $(".alert").slideUp
-      height: 0
-      opacity: 0
-    , 350
-    , ->
-      $(this).remove()
+# flashCallback = ->
+#     $(".alert").slideUp
+#       height: 0
+#       opacity: 0
+#     , 350
+#     , ->
+#       $(this).remove()
 
-$ ->
-    $(".alert").bind 'click', (ev) =>
-        flashCallback()
-    setTimeout flashCallback, 6000
+# $ ->
+#     $(".alert").bind 'click', (ev) =>
+#         flashCallback()
+#     setTimeout flashCallback, 6000

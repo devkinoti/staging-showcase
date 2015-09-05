@@ -1,38 +1,26 @@
-<header class = "row">
-	<div class = "col-lg-6">
+<div class = "dashboard_wrapper">
+<header>
+	<div class = "user_name">
 		<h2>Welcome <%= current_user.first_name %></h2>
 		<p>Signed in as <strong><%= current_user.email %></strong></p>
     </div>
 </header>
+</div>
 
 
 <% if user_signed_in? %>
-<div class = "row">
-    <div class = "col-md-3 col-xs-6">
-    	<div class = "panel panel-primary">
-    		<div class = "panel-heading">
-    			<div class = "text-center"><span class = "glyphicon glyphicon-folder-open"></span></div>
-    		</div>
-    		<div class = "panel-footer">
-    			<p class = "text-center"><%= link_to "Inventory" ,products_path %></p>
-    		</div>
-    	</div>
-    </div>
-<%end%>
-
-<%= admins_only do %>
-	<div class = "col-md-3 col-xs-6">
-		<div class = "panel panel-primary">
-			<div class = "panel-heading">
-				<div class = "text-center"><span class = "glyphicon glyphicon-shopping-cart"></span></div>
-			</div>
-			<div class = "panel-footer">
-				<p class = "text-center"><%= link_to "Sales", orders_path %></p>
-			</div>
-		</div>
+<div class = "options">
+	<div class = "inventory_tab">
+		<%= image_tag "ib.png" %>
+		<p><%= link_to "Add items to Inventory",products_path %></p>
 	</div>
 
-</div>
+	<div class = "sales_tab">
+		<%= image_tag "sales.png"%>
+		<p><%= link_to "View all orders",orders_path %></p>
+	</div>
 <%end%>
+</div>
+
 
 

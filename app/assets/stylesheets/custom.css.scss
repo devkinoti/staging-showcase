@@ -2,6 +2,10 @@
 	margin-top:30px;
 }
 
+.form_width{
+	width:600px;
+}
+
 .panel.panel-primary{
 	margin:0 20px 0 0;
 }
@@ -26,14 +30,77 @@
 	font-size:50px;
 }
 
+/*-- New session page - sign in --*/
+.logo{
+	text-align:center;
+	margin-bottom:20px;
+}
 
-/*----forms---*/
-.form_width{
-	width:400px;
+.well{
+	background-color:rgba(101,67,33,0.5);
+	border:0px;
+	border-radius:20px;
+}
+
+input:-webkit-autofill{
+	-webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+h2{
+	color:#fff;
 }
 
 .shared_links{
 	margin-top:20px;
+}
+
+label{
+	color:#fff;
+}
+
+.shared_links a{
+	color:#fff;
+}
+
+footer{
+  position:fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 5px;
+  text-align: center;
+  color:rgba(101,67,33,1);
+
+}
+
+/* -- end of new session page --*/
+
+/* -- store design --*/
+.store_logo{
+	text-align:center;
+	margin:0px 0 0 30px;
+}
+
+.header_links{
+	text-align:center;
+	background:rgba(101,67,33,0.5);
+	margin:20px 500px 20px 500px;
+	border-radius:10px;
+
+}
+
+.header_links ul{
+	padding:10px;
+	
+}
+
+.header_links li{
+	display:inline;
+	padding:0px 10px 0px 10px;
+}
+
+.header_links a{
+	color:#fff;
 }
 
 h1{
@@ -41,6 +108,106 @@ h1{
 	font-weight:400;
 	font-size:40px;
 }
+
+#store_wrapper{
+	width:1000px;
+	margin:0 auto;
+}
+
+.panel.cart{
+	position:fixed;
+	width:300px;
+	margin-top:50px;
+	margin-left:10px;
+	margin-right:50px;
+	border:0px;
+}
+
+.panel-default >
+.panel-heading{
+	background-color:rgba(101,67,33,0.5);
+	color:#fff;
+}
+
+.thumbnail{
+	overflow:hidden;
+	padding:0px;
+	height:300px;
+}
+
+.thumbnail
+.caption{
+	padding:20px;
+}
+
+#cart
+.btn.btn-danger{
+	margin-bottom:5px;
+}
+
+
+
+
+
+.navbar-default{
+	background-color:rgba(101,67,33,0.5);
+}
+
+.navbar-default
+.navbar-nav > li > a {
+	color:#fff;
+}
+
+.navbar-default
+.navbar-brand{
+	color:#fff;
+}
+
+p{
+	margin:0 0 0px;
+}
+
+/*--end of store stuff --*/
+
+/*-- dashboard stuff --*/
+.inventory_tab{
+	background-color:#fff;
+	padding:10px;
+	max-width:300px;
+	border-radius:10px;
+	margin-bottom:20px;
+	font-size:16px;
+}
+.inventory_tab p{
+	display:inline;
+	margin-left:10px;
+}
+.user_name h2{
+	color:#000;
+}
+
+.sales_tab{
+	background-color:#fff;
+	padding:10px;
+	max-width:300px;
+	border-radius:10px;
+	margin-bottom:20px;
+	font-size:16px;
+}
+
+.sales_tab p{
+	display:inline;
+	margin-left:10px;
+}
+
+.dashboard_wrapper{
+	text-align:center;
+}
+
+.options div{
+	margin:20px auto;
+}
+
 
 p#paid{
 	color:#9FBF50;
@@ -59,3 +226,31 @@ p#not_paid{
 	background-color:transparent;
 }
 
+/*---products---*/
+.table{
+	background-color:#fff;
+	border-radius:10px;
+
+}
+
+.table > tbody > tr > td{
+	padding:20px 10px 20px 10px;
+}
+
+.table > thead > tr > th{
+	padding:10px 10px 10px 10px;
+	background-color:rgba(101,67,33,0.67);
+}
+
+h1{
+	margin-bottom:20px;
+}
+
+.form-group label{
+	color:#000;
+	font-size:16px;
+}
+
+.order_edit{
+	font-size:20px;
+}
