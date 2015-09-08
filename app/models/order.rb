@@ -13,6 +13,8 @@ class Order < ActiveRecord::Base
 		end
 	end
 
+
+
 	def calculate_stock
       self.line_items.each do |item|
         item.product.remove_from_stock!(item.quantity)
