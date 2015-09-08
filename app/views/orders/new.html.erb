@@ -11,14 +11,14 @@
     </tr>
 
 	<tr>
-		<td>Total</td>
-		<td><%= number_to_currency(@cart.total_price,:precision => 0,:unit => "Ksh",
-		:format => "%u %n")%></td>
+		<td><strong>Total</strong></td>
+		<td><strong><%= number_to_currency(@cart.total_price,:precision => 0,:unit => "Ksh",
+		:format => "%u %n")%></strong></td>
 	</tr>
 </table>
 
 
-<p> Have the products been paid for? </p>
+<strong><h3 class = "order_cash_paid"> Enter Amount of Cash Paid by the Customer </h3></strong>
 <%= render 'form' %>
 
 <p><%= link_to 'Return to SBS Shop', store_path %></p>

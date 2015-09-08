@@ -30,6 +30,16 @@
 	</tbody>
 </table>
 
+<div class = "panel panel-default">
+	<div class = "panel-heading">
+		<h3 class = "panel-title">Due Customer's Change</h3>
+	</div>
+	<div class = "panel-body">
+		<h4>Cash Paid by customer <strong><%= number_to_currency(@order.cash_paid ,:precision => 0,:unit => "Ksh",:format => "%u %n") %></strong></h4>
+		<h4 class = "order_change">Amount of change due <strong><%= number_to_currency((@order_change = @order.cash_paid - @order.order_price),:precision => 0,:unit => "Ksh",:format => "%u %n")%></strong></h4>
+	</div>
+</div>
+
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Income From Shop</h3>
@@ -38,6 +48,8 @@
     <h4><%= number_to_currency(@order.order_price ,:precision => 0,:unit => "Ksh",:format => "%u %n") %></h4>
   </div>
 </div>
+
+
 
 <p><%= link_to "Printable Receipt (PDF)",order_path(@order,:format => "pdf") %></p>
 
