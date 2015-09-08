@@ -3,6 +3,7 @@ class Order < ActiveRecord::Base
 	has_many :products, through: :line_items
 
 	validates_with EnoughProductsValidator
+	validates :cash_paid, numericality: { only_integer: true, message: "Please enter a number only" }
 	
 	after_create :calculate_stock
 
