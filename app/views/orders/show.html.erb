@@ -51,8 +51,8 @@
 
 
 
-<p><%= link_to "Printable Receipt (PDF)",order_path(@order,:format => "pdf") %></p>
+<p><%= link_to "Printable Receipt (PDF)",order_path(@order,:format => "pdf"),class: "btn btn-lg btn-primary" %></p>
 
-<%= link_to 'Return to SBS Shop', store_path %> |
-<%= link_to 'View All the orders', orders_path %>
+<h4 class = "order_store_links"><%= link_to 'Return to SBS Shop', store_path %> |
+<%= link_to 'View All the orders', orders_path %></h4>
 </div>
