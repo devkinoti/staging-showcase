@@ -15,7 +15,7 @@ class OrderPdf < Prawn::Document
 	def title
 		text "Superior Base Services LTD",size: 30,style: :bold
 		move_down 10
-		text "P.O Box 18512-00100"
+		text "P.O Box 18413-00100"
 		text "Nairobi"
 		text "+254775456876"
 	end
