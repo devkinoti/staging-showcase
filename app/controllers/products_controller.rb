@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all.paginate(:page => params[:page],:per_page => 15).order("created_at DESC")
+    @products = Product.all.paginate(:page => params[:page],:per_page => 10).order("created_at DESC")
     @total_sum = Product.sum("quantity * purchase_price")
   end
 

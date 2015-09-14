@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby "2.1.5"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Active Record
@@ -34,6 +34,8 @@ gem 'prawn'
 gem 'prawn-table'
 gem 'will_paginate', '~> 3.0.6'
 gem 'will_paginate-bootstrap'
+
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

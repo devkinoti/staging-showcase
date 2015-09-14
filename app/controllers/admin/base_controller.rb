@@ -6,6 +6,7 @@ class Admin::BaseController < ApplicationController
 	def index
 		@total_expenses = Expense.sum("amount")
 		@orders = ::Order.all.where(:paid => true)
+		@total_inventory = ::Product.sum("quantity * purchase_price")
 
 		@total_income = Array(@orders).sum { |order| order.order_price }
 
