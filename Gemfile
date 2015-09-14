@@ -26,7 +26,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'bootstrap-sass'
 gem 'pg', group: :production
 gem 'rails_12factor', group: :production
-gem 'thin'
+gem 'thin', group: [:development, :production]
 #auth
 gem 'devise'
 gem 'chart-js-rails'
@@ -34,6 +34,9 @@ gem 'prawn'
 gem 'prawn-table'
 gem 'will_paginate', '~> 3.0.6'
 gem 'will_paginate-bootstrap'
+
+
+
 
 
 
