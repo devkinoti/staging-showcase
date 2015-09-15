@@ -47,5 +47,8 @@ class Admin::UsersController < Admin::BaseController
 
   def find_user
   	@user = User.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "The user you were looking for does not exist"
+    redirect_to admin_users_path
   end
 end

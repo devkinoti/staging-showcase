@@ -7,18 +7,18 @@
 #= require jquery_ujs
 #= require bootstrap
 #= require turbolinks
-#= require Chart
 
 
-# flashCallback = ->
-#     $(".alert").slideUp
-#       height: 0
-#       opacity: 0
-#     , 350
-#     , ->
-#       $(this).remove()
 
-# $ ->
-#     $(".alert").bind 'click', (ev) =>
-#         flashCallback()
-#     setTimeout flashCallback, 6000
+flashCallback = ->
+    $(".alert").slideUp
+      height: 0
+      opacity: 0
+    , 350
+    , ->
+      $(this).remove()
+
+$ ->
+    $(".alert").bind 'click', (ev) =>
+        flashCallback()
+    setTimeout flashCallback, 3000

@@ -3,7 +3,7 @@ class Admin::ExpensesController < ApplicationController
 	before_action :find_expense, :only => [:edit,:update,:destroy]
 	layout "admin/admin"
 	def index
-		@expenses = Expense.all
+		@expenses = Expense.all.paginate(:page => params[:page],:per_page => 10).order("created_at DESC")
 		@total_expenses = Expense.sum("amount")
 	end
 
@@ -48,5 +48,8 @@ class Admin::ExpensesController < ApplicationController
 
 	def find_expense
 		@expense = Expense.find(params[:id])
+	rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "The expense account you were looking for does not exist"
+      redirect_to admin_expenses_path
 	end
 end

@@ -7,7 +7,13 @@
 			<th> Product Name</th>
 			<th> Quantity sold </th>
 			<th> Product Shop Price</th>
+			<%= admins_only do %>
+			<th> Product Purchase Price</th>
+			<%end%>
 			<th> Order Total </th>
+			<%= admins_only do %>
+			<th> Profit </th>
+			<%end%>
 			<th> Order Status </th>
 		</tr>
 	</thead>
@@ -17,8 +23,14 @@
 		<tr>
 			<td><%= item.product.name %></td>
 			<td><%= item.quantity %></td>
-			<td><%= number_to_currency(item.product.shop_price,:precision => 0,:unit => "Ksh",:format => "%u %n") %></td>
+			<td><%= number_to_currency(item.product.shop_price,:precision => 0,:unit => "Ksh",:format => "%u %n") %></td> 
+			<%= admins_only do %>
+			<td><%= number_to_currency(item.product.purchase_price,:precision => 0,:unit => "Ksh",:format => "%u %n") %></td>
+			<%end%>
 			<td><%= number_to_currency(item.total_price,:precision => 0,:unit => "Ksh",:format => "%u %n") %></td>
+			<%= admins_only do %>
+			<td><%= number_to_currency(item.total_price - (item.product.purchase_price * item.quantity),:precision => 0,:unit => "Ksh",:format => "%u %n")%></td>
+			<%end%>
 			<td><% if @order.paid %> 
 				<strong><p id = "paid">Paid</p></strong>
 				<%else%>

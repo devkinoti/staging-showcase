@@ -94,6 +94,9 @@ class OrdersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "The order you were looking for does not exist"
+      redirect_to orders_path
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
