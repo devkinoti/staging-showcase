@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :admin do
   	root to: 'base#index'
     get "base/sales",as: :sales
+    get "base/purchases",as: :purchases
   	resources :users
     resources :expenses
   end
