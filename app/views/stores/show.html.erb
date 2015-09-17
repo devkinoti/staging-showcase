@@ -24,7 +24,7 @@
 				<%= image_tag "320.png" %>
 				<div class = "caption">
 					<h4><%= product.name %></h4>
-					<span><small>Quantity: <%= product.quantity %></small></span>
+					<span><small>Quantity: <%= product.quantity %> (<%= product.units %>)</small></span>
 					<% if product.quantity == 0 %>
 					<ul class = "list-group">
 						<li class = "list-group-item">
