@@ -12,7 +12,7 @@
 			<th>Items sold</th>
 			<th>Selling price</th>
 			<th>Profit per item</th>
-			<th>Total Profit</th>
+			<th>Current Total Profit</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -27,7 +27,7 @@
 			<td><%= product.total_sold %></td>
 			<td><%= number_to_currency(product.shop_price,:precision => 0,:unit => "Ksh",:format => "%u %n") %></td>
 			<td><%= number_to_currency(product.shop_price - product.purchase_price,:precision => 0,:unit => "Ksh",:format => "%u %n")%></td>
-			<td><%= number_to_currency(product.quantity * (product.shop_price - product.purchase_price),:precision => 0,:unit => "Ksh",:format => "%u %n")%></td>
+			<td><%= number_to_currency(product.total_sold * (product.shop_price - product.purchase_price),:precision => 0,:unit => "Ksh",:format => "%u %n")%></td>
 		</tr>
 		<%end%>
 	</tbody>
