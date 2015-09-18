@@ -20,6 +20,12 @@ class Product < ActiveRecord::Base
 		save
 	end
 
+	def total_sold
+		Array(self.line_items).sum do |item|
+			item.quantity
+		end
+	end
+
 	# def check_stock_quantity(qty)
 	# 	if qty > self.quantity
 	# 		false
