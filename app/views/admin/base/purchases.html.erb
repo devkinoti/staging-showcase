@@ -6,7 +6,7 @@
 			<th>Product Name</th>
 			<th>Unit of measure</th>
 			<th>Purchase price</th>
-			<th>Total Purchase price</th>
+			<th>Total Current Asset Value</th>
 			<th>Date of Purchase</th>
 			<th>Quantity in store</th>
 			<th>Items sold</th>
@@ -21,7 +21,13 @@
 			<td><%= product.name %></td>
 			<td><%= product.units %></td>
 			<td><%= number_to_currency(product.purchase_price,:precision => 0,:unit => "Ksh",:format => "%u %n") %></td>
-			<td><%= number_to_currency(product.total_price,:precision => 0,:unit => "Ksh",:format => "%u %n") %></td>
+			<td>
+				<% if(product.total_price == 0) %>
+				<small class = "restock"><strong> Re-stock product</strong></small>
+				<%else%>
+				<%= number_to_currency(product.total_price,:precision => 0,:unit => "Ksh",:format => "%u %n") %>
+				<%end%>
+			</td>
 			<td><%= product.created_at.strftime("%d-%b-%Y %H:%M")%></td>
 			<td>
 				<% if (product.quantity == 0) %>
