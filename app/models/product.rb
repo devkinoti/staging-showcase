@@ -9,6 +9,7 @@ class Product < ActiveRecord::Base
 	validates :quantity, presence: true
 	validates :purchase_price, presence: true
 
+
 	def total_price
 		self.purchase_price * self.quantity
 	end
