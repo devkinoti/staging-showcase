@@ -28,5 +28,11 @@ class Order < ActiveRecord::Base
     	end
     end
 
+    def self.total_grouped_by_day(start)
+    	orders = where(created_at: start.beginning_of_day..Time.zone.now).where(:paid => true).group("created_at")
+    	orders.group_by { |order| order.created_at.to_date }
+    end
+
+
 
 end

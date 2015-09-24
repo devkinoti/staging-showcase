@@ -5,6 +5,8 @@ class Admin::ExpensesController < ApplicationController
 	def index
 		@expenses = Expense.all.paginate(:page => params[:page],:per_page => 10).order("created_at DESC")
 		@total_expenses = Expense.sum("amount")
+		gon.expenses_account = Expense.all.pluck("account_type")
+		gon.expenses_amount = Expense.all.pluck("amount")
 	end
 
 	def new
