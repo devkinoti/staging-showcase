@@ -141,6 +141,8 @@ GEM
     thread_safe (0.3.5)
     tilt (1.4.1)
     ttfunk (1.4.0)
+    turbolinks (2.5.3)
+      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     tzinfo-data (1.2015.6)
@@ -175,6 +177,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   sqlite3
   thin
+  turbolinks
   tzinfo-data
   uglifier (>= 1.3.0)
   will_paginate (~> 3.0.6)
