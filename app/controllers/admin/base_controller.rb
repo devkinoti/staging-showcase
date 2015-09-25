@@ -22,6 +22,25 @@ class Admin::BaseController < ApplicationController
 			gon.daily_income_dates << date
 		end
 
+		gon.monthly_profits = []
+		gon.profit_loss_months = []
+		monthly_orders = Order.total_grouped_by_month(3.months.ago)
+	    monthly_expenses = Expense.total_grouped_by_month(3.months.ago)
+	    (3.months.ago.beginning_of_month.to_date.month..Date.today.to_date.month).map do |month|
+	    	monthly_liability = monthly_expenses[month] || 0
+	    	monthly_income = Array(monthly_orders[month]).sum { |order| order.order_price }
+	    	monthly_profits = monthly_income - monthly_liability
+	    	gon.monthly_profits << monthly_profits
+	    	gon.profit_loss_months << Date::MONTHNAMES[month]
+	    end
+		# 	monthly_income = Array(monthly_orders[month]).sum { |order| order.order_price }
+		# 	monthly_liability = Array(monthly_expenses[month]).sum("amount")
+		# 	monthly_profits = monthly_income - monthly_liability
+		# 	gon.monthly_profits << monthly_profits
+		# 	gon.months << month
+		# end
+
+
 	end
 
 	def sales

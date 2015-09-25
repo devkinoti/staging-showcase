@@ -37,6 +37,7 @@
         <%= admins_only do %>
         <td><%= link_to 'View Order Details', order %></td>
         <td><%= link_to "Edit Order Details",edit_order_path(order) %></td>
+        <!--<td><%= link_to "Destroy",order,method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
         <%end%>
       </tr>
     <%end%>

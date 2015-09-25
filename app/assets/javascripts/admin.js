@@ -65,6 +65,9 @@ $(function() {
 console.log(gon.daily_income);
 console.log(gon.daily_income_dates);
 
+console.log(gon.monthly_profits);
+console.log(gon.profit_loss_months);
+
 jQuery(function() {
   var data = [], my_doughnut_expenses_chart;
 
@@ -113,7 +116,7 @@ jQuery(function() {
   return myNewChart = new Chart($("#shop_income").get(0).getContext("2d")).Line(data,{
     datasetStrokeWidth : 4,
     pointDotRadius : 8,
-    bezierCurveTension : 0.3,
+    bezierCurveTension : 0,
     pointDotStrokeWidth : 4,
     tooltipTemplate: "<%if (label){%><%= label%>: <%}%>Ksh <%= value %>"
   });
@@ -123,14 +126,14 @@ jQuery(function() {
 jQuery(function() {
   var data, myNewChart;
   data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: gon.profit_loss_months,
     datasets: [
      {
         fillColor: "rgba(151,187,205, 0.2)",
         strokeColor: "rgba(62, 241, 255, 1)",
         pointColor: "#fff",
         pointStrokeColor: "rgba(62, 241, 255, 1)",
-        data: [28, 48, -40, 19, 96, 27, 100]
+        data: gon.monthly_profits
       }
     ]
   };
@@ -138,7 +141,8 @@ jQuery(function() {
     datasetStrokeWidth : 4,
     pointDotRadius : 8,
     bezierCurveTension : 0,
-    pointDotStrokeWidth : 4
+    pointDotStrokeWidth : 4,
+    tooltipTemplate: "<%if (label){%><%= label%>: <%}%>Ksh <%= value %>"
   });
 });
 
