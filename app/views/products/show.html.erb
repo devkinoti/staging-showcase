@@ -9,9 +9,9 @@
       <li class = "list-group-item"><strong>Product Type: </strong><%= @product.product_type %></li>
       <li class = "list-group-item"><strong>Unit of measure: </strong><%= @product.units %></li>
       <li class = "list-group-item"><strong>Number of items purchased:</strong><%= @product.quantity %></li>
-      <li class = "list-group-item"><strong>Shop price: </strong><%= number_to_currency(@product.shop_price,:precision => 0,:unit => "KES",:format => "%u %n") %></li>
-      <li class = "list-group-item"><strong>Purchase Price: </strong><%= number_to_currency(@product.purchase_price,:precision => 0,:unit => "KES",:format => "%u %n")%></li>
-      <li class = "list-group-item"><strong>Total Purchase price: </strong><%= number_to_currency(@product.total_price,:precision => 0,:unit => "KES",:format => "%u %n") %></li>
+      <li class = "list-group-item"><strong>Shop price: </strong><%= number_to_currency(@product.shop_price,:precision => 2,:unit => "KES",:format => "%u %n") %></li>
+      <li class = "list-group-item"><strong>Purchase Price: </strong><%= number_to_currency(@product.purchase_price,:precision => 2,:unit => "KES",:format => "%u %n")%></li>
+      <li class = "list-group-item"><strong>Total Purchase price: </strong><%= number_to_currency(@product.total_price,:precision => 2,:unit => "KES",:format => "%u %n") %></li>
     </ul>
   </div>
 </div>
