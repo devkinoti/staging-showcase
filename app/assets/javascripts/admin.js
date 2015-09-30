@@ -85,7 +85,7 @@ jQuery(function() {
 
   for(var i = 0; i < gon.expenses_account.length; i++)
   {
-    var pie_data = new Data(gon.expenses_amount[i],gon.expenses_account[i],shadeColor2("FF0000",(i + 0.018)),shadeColor2("5AD3D1",0));
+    var pie_data = new Data(gon.expenses_amount[i],gon.expenses_account[i],shadeColor2("FF0000",(i + 0.05)),shadeColor2("5AD3D1",0));
     data.push(pie_data);
   }
 

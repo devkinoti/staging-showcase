@@ -7,7 +7,8 @@ class Product < ActiveRecord::Base
 	validates :product_type, presence: true
 	validates :units, presence: true
 	validates :quantity, presence: true
-	validates :purchase_price, presence: true
+	validates :purchase_price, presence: true, numericality: { greater_than_or_equal_to: 0.01}
+	validates :shop_price, presence: true, numericality: { greater_than_or_equal_to: 0.01}
 
 
 	def total_price
