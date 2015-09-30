@@ -4,7 +4,7 @@
 	<tr>
 	<%end%>
 	<td><%= line_item.product.name %>  &times; <%= line_item.quantity %></td>
-	<td><%= number_to_currency(line_item.total_price,:precision => 0,:unit => "Ksh",
+	<td><%= number_to_currency(line_item.total_price,:precision => 2,:unit => "Ksh",
 				:format => "%u %n") %></td>
 	<td><%= button_to "remove", decrement_line_item_path(line_item), method: :put, remote: :true, class: "btn btn-danger btn-xs" %></td>
 	</tr>

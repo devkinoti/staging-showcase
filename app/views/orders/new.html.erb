@@ -5,14 +5,14 @@
 	<% @cart.line_items.each do |line_item| %>
 	<tr>
 	<td><%= line_item.product.name %> &times; <%= line_item.quantity %></td>
-	<td><%= number_to_currency(line_item.total_price,:precision => 0,:unit => "Ksh",
+	<td><%= number_to_currency(line_item.total_price,:precision => 2,:unit => "Ksh",
 				:format => "%u %n") %></td>
 	<%end%>
     </tr>
 
 	<tr>
 		<td><strong>Total</strong></td>
-		<td><strong><%= number_to_currency(@cart.total_price,:precision => 0,:unit => "Ksh",
+		<td><strong><%= number_to_currency(@cart.total_price,:precision => 2,:unit => "Ksh",
 		:format => "%u %n")%></strong></td>
 	</tr>
 </table>

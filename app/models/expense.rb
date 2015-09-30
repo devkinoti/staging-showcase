@@ -1,6 +1,5 @@
 class Expense < ActiveRecord::Base
-	validates :amount, numericality: { only_integer: true, message: "Please enter a number only" }
-
+	validates :amount, presence: true, numericality: { greater_than_or_equal_to: 0.01}
 	def self.total_grouped_by_day(start)
     	expenses = where(created_at: start.beginning_of_day..Time.zone.now).group("expenses.id, created_at")
     	expenses.group_by { |expense| expense.created_at.to_date }

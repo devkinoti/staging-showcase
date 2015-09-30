@@ -23,13 +23,13 @@
 		<tr>
 			<td><%= item.product.name %></td>
 			<td><%= item.quantity %></td>
-			<td><%= number_to_currency(item.product.shop_price,:precision => 0,:unit => "Ksh",:format => "%u %n") %></td> 
+			<td><%= number_to_currency(item.product.shop_price,:precision => 2,:unit => "Ksh",:format => "%u %n") %></td> 
 			<%= admins_only do %>
-			<td><%= number_to_currency(item.product.purchase_price,:precision => 0,:unit => "Ksh",:format => "%u %n") %></td>
+			<td><%= number_to_currency(item.product.purchase_price,:precision => 2,:unit => "Ksh",:format => "%u %n") %></td>
 			<%end%>
-			<td><%= number_to_currency(item.total_price,:precision => 0,:unit => "Ksh",:format => "%u %n") %></td>
+			<td><%= number_to_currency(item.total_price,:precision => 2,:unit => "Ksh",:format => "%u %n") %></td>
 			<%= admins_only do %>
-			<td><%= number_to_currency(item.total_price - (item.product.purchase_price * item.quantity),:precision => 0,:unit => "Ksh",:format => "%u %n")%></td>
+			<td><%= number_to_currency(item.total_price - (item.product.purchase_price * item.quantity),:precision => 2,:unit => "Ksh",:format => "%u %n")%></td>
 			<%end%>
 			<td><% if @order.paid %> 
 				<strong><p id = "paid">Paid</p></strong>
@@ -47,8 +47,8 @@
 		<h3 class = "panel-title">Due Customer's Change</h3>
 	</div>
 	<div class = "panel-body">
-		<h4>Cash Paid by customer <strong><%= number_to_currency(@order.cash_paid ,:precision => 0,:unit => "Ksh",:format => "%u %n") %></strong></h4> <p><%=  @order.created_at.strftime("%d-%b-%Y %H:%M") %></p>
-		<h4 class = "order_change">Amount of change due <strong><%= number_to_currency((@order_change = @order.cash_paid - @order.order_price),:precision => 0,:unit => "Ksh",:format => "%u %n")%></strong></h4>
+		<h4>Cash Paid by customer <strong><%= number_to_currency(@order.cash_paid ,:precision => 2,:unit => "Ksh",:format => "%u %n") %></strong></h4> <p><%=  @order.created_at.strftime("%d-%b-%Y %H:%M") %></p>
+		<h4 class = "order_change">Amount of change due <strong><%= number_to_currency((@order_change = @order.cash_paid - @order.order_price),:precision => 2,:unit => "Ksh",:format => "%u %n")%></strong></h4>
 	</div>
 </div>
 
@@ -57,7 +57,7 @@
     <h3 class="panel-title">Income From Shop</h3>
   </div>
   <div class="panel-body">
-    <h4><%= number_to_currency(@order.order_price ,:precision => 0,:unit => "Ksh",:format => "%u %n") %></h4>
+    <h4><%= number_to_currency(@order.order_price ,:precision => 2,:unit => "Ksh",:format => "%u %n") %></h4>
   </div>
 </div>
 

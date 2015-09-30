@@ -30,7 +30,7 @@
           <%= order.created_at.strftime("%d-%b-%Y %H:%M") %>
         </td>
         <td>
-          <%= number_to_currency(order.order_price,:precision => 0,:unit => "Ksh", :format => "%u %n") %>
+          <%= number_to_currency(order.order_price,:precision => 2,:unit => "Ksh", :format => "%u %n") %>
         </td>
 
 

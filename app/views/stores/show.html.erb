@@ -33,7 +33,7 @@
 						</li>
 					</ul>
 					<%else%>
-					<h4 class = "pull-right"><%= number_to_currency(product.shop_price,:precision => 0,:unit => "Ksh",:format => "%u %n") %></h4>
+					<h4 class = "pull-right"><%= number_to_currency(product.shop_price,:precision => 2,:unit => "Ksh",:format => "%u %n") %></h4>
 					<p><%= button_to "Add to cart",line_items_path(product_id: product),remote: true,class: "btn btn-success" %></p>
 					<%end%>
 				</div>

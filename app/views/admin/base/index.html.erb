@@ -10,7 +10,7 @@
     <h3 class="panel-title">Total Value Of Current Assets In Inventory</h3>
   </div>
   <div class="panel-body">
-  	<h4><%= number_to_currency(@total_inventory,:precision => 0,:unit => "Ksh",:format => "%u %n") %></h4>
+  	<h4><%= number_to_currency(@total_inventory,:precision => 2,:unit => "Ksh",:format => "%u %n") %></h4>
   </div>
 </div>
 
@@ -26,7 +26,7 @@
         <h3 class="panel-title">Expenses Summary</h3>
       </div>
       <div class="panel-body">
-        <h4><%= number_to_currency(@total_expenses,:precision => 0,:unit => "Ksh",:format => "%u %n") %></h4>
+        <h4><%= number_to_currency(@total_expenses,:precision => 2,:unit => "Ksh",:format => "%u %n") %></h4>
       </div>
     </div>
   </div>
@@ -43,7 +43,7 @@
         <h3 class="panel-title">Total Value of all Income</h3>
       </div>
       <div class="panel-body">
-        <h4><strong><%= number_to_currency(@total_income,:precision => 0,:unit => "Ksh",:format => "%u %n") %></strong></h4>
+        <h4><strong><%= number_to_currency(@total_income,:precision => 2,:unit => "Ksh",:format => "%u %n") %></strong></h4>
       </div>
     </div>
   </div>
@@ -61,9 +61,9 @@
       </div>
       <div class="panel-body">
         <% if @profit > 0 %>
-        <h4 id = "profit"><strong><span> Profit </span><%= number_to_currency(@profit,:precision => 0,:unit => "Ksh",:format => "%u %n") %></strong></h4>
+        <h4 id = "profit"><strong><span> Profit </span><%= number_to_currency(@profit,:precision => 2,:unit => "Ksh",:format => "%u %n") %></strong></h4>
         <% else %>
-        <h4 id = "loss"><strong><span> Loss </span><%= number_to_currency(@profit,:precision => 0,:unit => "Ksh",:format => "%u %n") %></strong></h4>
+        <h4 id = "loss"><strong><span> Loss </span><%= number_to_currency(@profit,:precision => 2,:unit => "Ksh",:format => "%u %n") %></strong></h4>
         <%end%>
       </div>
     </div>

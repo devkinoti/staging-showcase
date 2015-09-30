@@ -59,6 +59,6 @@ class OrderPdf < Prawn::Document
 	end
 
 	def price(num)
-		@view.number_to_currency(num,:precision => 0, :unit => "Ksh",:format => "%u %n")
+		@view.number_to_currency(num,:precision => 2, :unit => "Ksh",:format => "%u %n")
 	end
 end
