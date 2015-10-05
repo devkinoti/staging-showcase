@@ -1,26 +1,44 @@
 <div class = "dashboard_wrapper">
-<header>
-	<div class = "user_name">
-		<h2>Welcome <%= current_user.first_name %></h2>
-		<p>Signed in as <strong><%= current_user.email %></strong></p>
-    </div>
-</header>
+	<header>
+		<div class = "user_name">
+			<h2>Welcome <%= current_user.first_name %></h2>
+			<p>Signed in as <strong><%= current_user.email %></strong></p>
+		</div>
+	</header>
+
+	<% if user_signed_in? %>
+	<div class="row">
+		<div class="col-lg-4">
+			<%= image_tag "200.png",class: "img-circle"%>
+			<p><%= link_to "Mass Unit Inventory", '#' ,class: "btn btn-default" %></p>
+		</div>
+		<div class="col-lg-4">
+			<%= image_tag "200.png",class: "img-circle"%>
+			<p><%= link_to "Utility Products Inventory", products_path, class: "btn btn-default" %></p>
+		</div>
+		<div class="col-lg-4">
+			<%= image_tag "200.png",class: "img-circle"%>
+			<p><%= link_to "View all orders",orders_path, class: "btn btn-default" %></p>
+		</div>
+	</div>
+	<%end%>
 </div>
 
 
-<% if user_signed_in? %>
-<div class = "options">
+<!--<div class = "options">
+	<div class="mass_unit_tab">
+		<p><%= link_to "Liquids & Cereal Products",'#'%>
+	</div>
 	<div class = "inventory_tab">
 		<%= image_tag "ib.png" %>
-		<p><%= link_to "Add items to Inventory",products_path %></p>
+		<p><%= link_to "Utility Products Inventory",products_path %></p>
 	</div>
 
 	<div class = "sales_tab">
 		<%= image_tag "sales.png"%>
 		<p><%= link_to "View all orders",orders_path %></p>
-	</div>
-<%end%>
-</div>
+	</div>-->
+
 
 
 

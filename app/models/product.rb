@@ -28,12 +28,6 @@ class Product < ActiveRecord::Base
 		end
 	end
 
-	# def check_stock_quantity(qty)
-	# 	if qty > self.quantity
-	# 		false
-	# 	end
-	# end
-
 	private
 
 	def ensure_not_referenced_by_any_line_item
