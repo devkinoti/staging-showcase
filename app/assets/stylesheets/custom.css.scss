@@ -121,6 +121,7 @@ h1{
 	margin-left:5px;
 	margin-right:10px;
 	border:0px;
+	box-shadow: 0px 3px 5px  rgba(101,67,33,0.5);
 }
 
 .panel-default >
@@ -132,7 +133,8 @@ h1{
 .thumbnail{
 	overflow:hidden;
 	padding:0px;
-	height:300px;
+	height:250px;
+	box-shadow: 0px 3px 5px  rgba(101,67,33,0.5);
 }
 
 .thumbnail
@@ -164,8 +166,16 @@ h1{
 	color:#fff;
 }
 
+.container-fluid .navbar-brand{
+	color:#fff;
+}
+
 p{
 	margin:0 0 0px;
+}
+
+.list-group{
+	margin-top: 35px;
 }
 
 
