@@ -36,6 +36,7 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'will_paginate-bootstrap'
 gem 'gon'
 gem 'ransack'
+gem 'growlyflash'
 
 
 

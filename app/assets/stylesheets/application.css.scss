@@ -17,6 +17,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$growlyflash-top: 70px !default;
+
+@import "growlyflash";
+
 
 
 @font-face {
@@ -38,23 +42,24 @@ body{
 
 
 
-.alert{
-	position:fixed;
-	margin-bottom:20px;
-	top: 50px;
-    left: 0px;
-    right: 0px;
-    z-index: 7000;
-}
 
-.alert-success{
-	text-align:center;
-}
+// .alert{
+// 	position:fixed;
+// 	margin-bottom:20px;
+// 	top: 50px;
+//     left: 0px;
+//     right: 0px;
+//     z-index: 7000;
+// }
 
-.alert-danger{
-	text-align:center;
-	text-decoration: none;
-}
+// .alert-success{
+// 	text-align:center;
+// }
+
+// .alert-danger{
+// 	text-align:center;
+// 	text-decoration: none;
+// }
 
 
 

@@ -15,28 +15,29 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require Chart
+//= require growlyflash
 //= require_tree .
 
 
-var flashCallback;
+// var flashCallback;
 
-flashCallback = function() {
-  return $(".alert").slideUp({
-    height: 0,
-    opacity: 0
-  }, 350, function() {
-    return $(this).remove();
-  });
-};
+// flashCallback = function() {
+//   return $(".alert").slideUp({
+//     height: 0,
+//     opacity: 0
+//   }, 350, function() {
+//     return $(this).remove();
+//   });
+// };
 
-$(function() {
-  $(".alert").bind('click', (function(_this) {
-    return function(ev) {
-      return flashCallback();
-    };
-  })(this));
-  return setTimeout(flashCallback, 3000);
-});
+// $(function() {
+//   $(".alert").bind('click', (function(_this) {
+//     return function(ev) {
+//       return flashCallback();
+//     };
+//   })(this));
+//   return setTimeout(flashCallback, 3000);
+// });
 
 
 
