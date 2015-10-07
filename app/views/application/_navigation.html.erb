@@ -25,8 +25,9 @@
         <li><%= link_to "Admin",admin_root_path %></li>
         <%end%>
 
-        <% if user_signed_in? %>
+        <% if user_signed_in? %> 
         <li><%= link_to "Sign out", destroy_user_session_path,method: 'delete' %></li>
+        <li class="navbar-text navbar-right">Signed in as <%= current_user.email %></li>
         <%end%>
       </ul>
       </div>
