@@ -4,6 +4,7 @@ class StoresController < ApplicationController
 	before_action :set_cart
 	
 	def show
-		@products = Product.order("created_at DESC")
+		@search = Product.search(params[:q])
+		@products = @search.result.order("created_at DESC")
 	end
 end

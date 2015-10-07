@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   resource :dashboard, only: [:show]
-  resource :store, only: [:show]
+  resource :store, only: [:show] do 
+    collection { get :search, to: "stores#show"} 
+  end
   resources :products
   resources :carts
   resources :orders
