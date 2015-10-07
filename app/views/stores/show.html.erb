@@ -58,8 +58,13 @@
 			</div>
 		</div>
 		<%end%>
+		<div class = "col-lg-4 col-md-4">
+			<%= will_paginate @products,renderer: BootstrapPagination::Rails %>
+		</div>
 	</div>
 </div>
+
+
 
 <!--<div class = "row">
 	<div class = "col-lg-3 col-sm-4">

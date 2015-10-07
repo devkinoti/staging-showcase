@@ -5,6 +5,6 @@ class StoresController < ApplicationController
 	
 	def show
 		@search = Product.search(params[:q])
-		@products = @search.result.order("created_at DESC")
+		@products = @search.result.all.paginate(:page => params[:page],:per_page => 12).order("created_at DESC")
 	end
 end
