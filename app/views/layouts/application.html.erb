@@ -10,12 +10,10 @@
 <body>
 	<%= render "application/navigation" %>
 	<div class = "container">
-		<%if notice %>
-		<div class = "alert alert-success"><%= notice %></div>
+		<% flash.each do |name,msg| %>
+		<%= content_tag :div, msg , :id => "flash_#{name}" %>
 		<%end%>
-		<%if alert %>
-		<div class = "alert alert-danger"><%= alert %></div>
-		<%end%>
+
 	</div>
 
 	<%= yield %>

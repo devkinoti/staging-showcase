@@ -309,3 +309,14 @@ h1{
 .order-store-button{
 	margin-bottom:20px;
 }
+
+/*trial*/
+#flash-error, #flash-alert{
+	@extend .alert;
+	@extend .alert-danger;
+}
+
+#flash-warning{
+	@extend .alert;
+	@extend .alert-warning;
+}
