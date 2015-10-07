@@ -329,15 +329,15 @@ input[type=checkbox]{
 
 /*trial*/
 #flash-notice{
-	@extend .alert;
-	@extend .alert-success;
+	@extend .alert !optional;
+	@extend .alert-success !optional;
 }
 #flash-error, #flash-alert{
-	@extend .alert;
-	@extend .alert-danger;
+	@extend .alert !optional;
+	@extend .alert-danger !optional;
 }
 
 #flash-warning{
-	@extend .alert;
-	@extend .alert-warning;
+	@extend .alert !optional;
+	@extend .alert-warning !optional;
 }
