@@ -1,5 +1,7 @@
-
 <div class = "container">
+	<p class = "order_store_btns">
+		<%= link_to 'Return to SBS Shop', store_path, class: "btn btn-default" %> 
+		<%= link_to 'View All the orders', orders_path ,class: "btn btn-default" %></p>
 <h3> Order #<%= @order.id %></h3>
 <table class = "table table-hover table-striped">
 	<thead>
@@ -65,6 +67,5 @@
 
 <p><%= link_to "Printable Receipt (PDF)",order_path(@order,:format => "pdf"),class: "btn btn-lg btn-primary" %></p>
 
-<h4 class = "order_store_links"><%= link_to 'Return to SBS Shop', store_path %> |
-<%= link_to 'View All the orders', orders_path %></h4>
+
 </div>

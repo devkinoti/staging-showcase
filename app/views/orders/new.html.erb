@@ -1,5 +1,6 @@
 <div class = "container">
 <h3>Complete the New order</h3>
+<p class="order_return_to_store"><%= link_to 'Return to SBS Shop', store_path,class: "btn btn-default" %></p>
 
 <table class = "table">
 	<% @cart.line_items.each do |line_item| %>
@@ -21,5 +22,5 @@
 <strong><h3 class = "order_cash_paid"> Enter Amount of Cash Paid by the Customer </h3></strong>
 <%= render 'form' %>
 
-<p><%= link_to 'Return to SBS Shop', store_path %></p>
+
 </div>

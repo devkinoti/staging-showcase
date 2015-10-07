@@ -1,27 +1,11 @@
 <div class = "orderform-width">
   <%= form_for(@order) do |f| %>
-  <% if @order.errors.any? %>
-  <div class = "alert alert-danger">
-      <p><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</p>
+    <%= form_group_for f, :cash_paid do %>
+       <%= f.text_field :cash_paid,placeholder: "Enter amount from  customer to get the change", class: "form-control input-lg" %>
+    <%end%>
 
-      <ul>
-      <% @order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class = "form-group">
-    <%= f.label :Cash_Paid %>
-    <%= f.text_field :cash_paid, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.check_box :paid, :style => "width:25px; height:25px;" %>
-    <%= f.label :paid %>
-  </div>
-  <div class="form-group">
-    <%= f.submit class: "btn btn-success" %>
-  </div>
+    <%= form_group_for f, :paid do %>
+       <%= f.check_box :paid, class: "paid_checkbox" %>
+    <%end%>
+    <%= f.submit class: "btn btn-success btn-lg" %>
 <% end %>

@@ -1,8 +1,10 @@
 <div class = "container">
 <h1>Editing product</h1>
+<p class="edit_product_buttons"><%= link_to 'Show Product Details', @product, class: "btn btn-default" %> 
+<%= link_to 'Return to Inventory List', products_path, class: "btn btn-default" %>
+<%= link_to "Go to Store", store_path ,class: "btn btn-default" %></p>
 
 <%= render 'form' %>
 
-<%= link_to 'Show Product Details', @product %> |
-<%= link_to 'Return to Inventory List', products_path %>
+
 </div>

@@ -1,43 +1,23 @@
 <div class = "form_width">
 <%= form_for(@product) do |f| %>
-  <% if @product.errors.any? %>
-    <div class="alert alert-danger">
-      <p><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</p>
-
-      <ul>
-      <% @product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= f.label :Name %><br>
-    <%= f.text_field :name ,class: "form-control"%>
-  </div>
-  <div class = "form-group">
-    <%= f.label :Product_type %><br>
-    <%= f.text_field :product_type, class: "form-control"  %> 
-  </div>
-  <div class = "form-group">
-    <%= f.label :Units_of_measure  %><br>
-    <%= f.text_field :units, class: "form-control" %>
-  </div>
-  <div class = "form-group">
-    <%= f.label :Quantity %>
-    <%= f.text_field :quantity ,class: "form-control"%>
-  </div>
-  <div class = "form-group">
-    <%= f.label :Purchase_price_per_item %>
-    <%= f.text_field :purchase_price,class: "form-control" %>
-  </div>
-  <div class = "form-group">
-    <%= f.label :Shop_price %>
-    <%= f.text_field :shop_price, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.submit class: "btn btn-primary" %>
-  </div>
+    <%= form_group_for f, :name do %>
+        <%= f.text_field :name ,placeholder: "Enter name of utility product", class: "form-control input-lg"%>
+    <%end%>
+    <%= form_group_for f, :product_type do %>
+        <%= f.text_field :product_type, placeholder: "Enter the type of product",class: "form-control input-lg"  %> 
+    <%end%>
+    <%= form_group_for f, :units do %>
+        <%= f.text_field :units,placeholder: "Example bottles,pairs,pieces,1kg blueband", class: "form-control input-lg" %>
+    <%end%>
+    <%= form_group_for f, :quantity do %>
+        <%= f.text_field :quantity,placeholder: "Whole number count example 10 ", class: "form-control input-lg"%>
+    <%end%>
+    <%= form_group_for f, :purchase_price do %>
+        <%= f.text_field :purchase_price,placeholder: "buying price for each item",class: "form-control input-lg" %>
+    <%end%>
+    <%= form_group_for f, :shop_price do %>
+        <%= f.text_field :shop_price,placeholder: "selling price for each item", class: "form-control input-lg" %>
+    <%end%>
+    <%= f.submit class: "btn btn-primary btn-lg" %>
 <% end %>
 </div>
