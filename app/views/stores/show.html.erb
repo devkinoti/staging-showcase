@@ -9,7 +9,7 @@
 		<div class="form_width">
 			<%= search_form_for @search, url: search_store_path do |f| %>		
 			<div class="form-group">
-				<%= f.label :name_cont, "Product Name" %>
+				<%= f.label :name_cont, "Search for product" %>
 				<%= f.text_field :name_cont , placeholder: "Enter product name to search", class: "form-control input-lg" %>
 				<div class="form-group">
 					<%= f.submit class: "btn btn-default btn-lg" %>
