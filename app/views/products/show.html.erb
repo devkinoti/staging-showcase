@@ -5,7 +5,7 @@
   <%= link_to 'Return to Inventory List', products_path, class: "btn btn-default" %>
   <%= link_to "Create New product", new_product_path, class: "btn btn-default" %>
   <%= admins_only do %>
-      <%= link_to "Go to admin purchases", admin_purchases_path, class: "btn btn-default" %>
+      <%= link_to "Go to admin purchases", admin_purchase_path, class: "btn btn-default" %>
   <%end%>
   <%= link_to "Go to the Store",store_path, class: "btn btn-default"%>
 </p>

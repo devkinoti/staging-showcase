@@ -41,7 +41,7 @@
 			<div class ="thumbnail">
 				<!--<%= image_tag "320.png" %>-->
 				<div class = "caption">
-					<h4><%= product.name %></h4>
+					<h4><%= link_to product.name, product_path(product) %></h4>
 					<% if product.mass_unit_check %>
 					<span><small>Quantity: <%= number_with_precision(product.quantity,precision: 2) %> (<%= product.units %>)</small></span>
 					<%else%>
