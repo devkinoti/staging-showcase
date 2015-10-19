@@ -27,7 +27,7 @@ class OrderPdf < Prawn::Document
 
 	def order_number
 		move_down 20
-		text "Order \##{@order.id}",size: 15,style: :italic
+		text "Order \##{@order.created_at.strftime("%Y%m%d")}-#{@order.id}",size: 15,style: :italic
 	end
 
 	def line_items
