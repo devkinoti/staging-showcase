@@ -6,5 +6,11 @@
 	<td><%= line_item.product.name %>  &times; <%= line_item.quantity %></td>
 	<td><%= number_to_currency(line_item.total_price,:precision => 2,:unit => "Ksh",
 				:format => "%u %n") %></td>
-	<td><%= button_to "remove", decrement_line_item_path(line_item), method: :put, remote: :true, class: "btn btn-danger btn-xs" %></td>
+	<td>
+		<% if line_item.product.mass_unit_check %>
+		<%= button_to "remove", decrement_mass_product_line_item_path(line_item), method: :put, remote: true,class: "btn btn-primary btn-xs"%>
+		<%else%>
+		<%= button_to "remove", decrement_line_item_path(line_item), method: :put, remote: :true, class: "btn btn-danger btn-xs" %>
+		<%end%>
+	</td>
 	</tr>

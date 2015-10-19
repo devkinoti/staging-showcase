@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   namespace :admin do
   	root to: 'base#index'
     get "base/sales",as: :sales
-    get "base/purchases",as: :purchases
+    resource :purchase,only: [:show] do 
+      collection { get :search, to: "purchases#show"}
+    end
   	resources :users
     resources :expenses
   end
@@ -19,6 +21,7 @@ Rails.application.routes.draw do
   resources :orders
   resources :line_items do
     put 'decrement',on: :member
+    put 'decrement_mass_product', on: :member
   end
   
 

@@ -3,6 +3,10 @@
 <p class = "product_links">
   <%= link_to 'Edit', edit_product_path(@product),class: "btn btn-default" %> 
   <%= link_to 'Return to Inventory List', products_path, class: "btn btn-default" %>
+  <%= link_to "Create New product", new_product_path, class: "btn btn-default" %>
+  <%= admins_only do %>
+      <%= link_to "Go to admin purchases", admin_purchases_path, class: "btn btn-default" %>
+  <%end%>
   <%= link_to "Go to the Store",store_path, class: "btn btn-default"%>
 </p>
 <div class = "panel panel-default">
@@ -14,7 +18,13 @@
       <li class = "list-group-item"><strong>Name: </strong><%= @product.name %></li>
       <li class = "list-group-item"><strong>Product Type: </strong><%= @product.product_type %></li>
       <li class = "list-group-item"><strong>Unit of measure: </strong><%= @product.units %></li>
-      <li class = "list-group-item"><strong>Number of items purchased:</strong><%= @product.quantity %></li>
+      <li class = "list-group-item"><strong>Number of items purchased:</strong>
+        <% if @product.mass_unit_check %>
+        <%= number_with_precision(@product.quantity, precision: 2) %>
+        <%else%>
+        <%= number_with_precision(@product.quantity, precision: 0) %>
+        <%end%>
+      </li>
       <li class = "list-group-item"><strong>Shop price: </strong><%= number_to_currency(@product.shop_price,:precision => 2,:unit => "KES",:format => "%u %n") %></li>
       <li class = "list-group-item"><strong>Purchase Price: </strong><%= number_to_currency(@product.purchase_price,:precision => 2,:unit => "KES",:format => "%u %n")%></li>
       <li class = "list-group-item"><strong>Total Purchase price: </strong><%= number_to_currency(@product.total_price,:precision => 2,:unit => "KES",:format => "%u %n") %></li>

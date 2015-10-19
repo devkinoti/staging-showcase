@@ -1,7 +1,7 @@
 class LineItemsController < ApplicationController
   before_action :authenticate_user!
   include CurrentCart
-  before_action :set_cart, only: [:create,:decrement]
+  before_action :set_cart, only: [:create,:decrement,:decrement_mass_product]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
   # GET /line_items
@@ -28,7 +28,12 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     product = Product.find(params[:product_id])
-    @line_item = @cart.add_product(product.id)
+    quantity = params[:quantity]
+    @line_item = if product.mass_unit_check
+      @cart.add_mass_product(product.id, Float(quantity))
+    else
+      @cart.add_product(product.id)
+    end
 
     respond_to do |format|
       if @line_item.save
@@ -72,6 +77,20 @@ class LineItemsController < ApplicationController
     end
   end
 
+  def decrement_mass_product
+    @line_item = @cart.decrease_mass_product(params[:id])
+    respond_to do |format|
+      if @line_item.save
+        format.html { redirect_to store_url }
+        format.js { @current_item = @line_item }
+        format.json { head :ok }
+      else
+        format.html { render action: "edit"}
+        format.json { render json: @line_item.errors,status: :unprocessable_entity }
+      end
+    end
+  end
+
   # DELETE /line_items/1
   # DELETE /line_items/1.json
   def destroy
@@ -94,7 +113,7 @@ class LineItemsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white
     # list through.
     def line_item_params
-      params.require(:line_item).permit(:product_id)
+      params.require(:line_item).permit(:product_id,:quantity)
     end
   #...
 end

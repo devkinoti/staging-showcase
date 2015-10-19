@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930060301) do
+ActiveRecord::Schema.define(version: 20151019070320) do
 
   create_table "carts", force: true do |t|
     t.datetime "created_at"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20150930060301) do
     t.integer  "cart_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "quantity",   default: 1
+    t.decimal  "quantity",   precision: 8, scale: 2, default: 1.0
     t.integer  "price"
     t.integer  "order_id"
   end
@@ -53,9 +53,10 @@ ActiveRecord::Schema.define(version: 20150930060301) do
     t.datetime "updated_at"
     t.string   "product_type"
     t.string   "units"
-    t.integer  "quantity"
-    t.decimal  "purchase_price", precision: 8, scale: 2
-    t.decimal  "shop_price",     precision: 8, scale: 2
+    t.decimal  "quantity",        precision: 8, scale: 2
+    t.decimal  "purchase_price",  precision: 8, scale: 2
+    t.decimal  "shop_price",      precision: 8, scale: 2
+    t.boolean  "mass_unit_check"
   end
 
   create_table "users", force: true do |t|

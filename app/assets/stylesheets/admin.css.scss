@@ -16,7 +16,7 @@ body{
 }
 
 #page-content-wrapper{
-	width:1000px;
+	width:1100px;
 	padding:15px;
 	margin-left:250px;
 
@@ -125,4 +125,12 @@ small.restock{
 
 #profit_loss{
 	margin-bottom:20px;
+}
+
+.table > tbody > tr > td{
+	padding:20px 10px 20px 10px;
+}
+
+.table > thead > tr > th{
+	padding:10px 10px 10px 10px;
 }

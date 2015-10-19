@@ -1,0 +1,80 @@
+<h2> Purchases </h2>
+
+<div class="row">
+  <div class="col-lg-12 col-sm-8">
+    <%= search_form_for @search, url: search_admin_purchase_path do |f| %>   
+    <div class="form-group">
+      <%= f.label :quantity_lteq, "Search for products with quantities less than: " %>
+      <%= f.search_field :quantity_lteq , placeholder: "Enter quantity value you want to search for", class: "form-control input-lg" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit class: "btn btn-primary btn-lg" %>
+    </div>
+    <%end%>
+  </div>
+</div>
+
+<table class = "table table-hover table-striped">
+	<thead>
+		<tr>
+			<th>Product Name</th>
+			<th>Unit of measure</th>
+			<th>Purchase price</th>
+			<th>Total Stock bought</th>
+			<th>Quantity in store</th>
+			<th>Total Current Asset Value</th>
+			<th>Items sold</th>
+			<th>Date of Purchase</th>
+			<th>Selling price</th>
+			<th>Profit per item</th>
+			<th>Current Total Profit</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @products.each do |product| %>
+		<tr>
+			<td><%= link_to product.name , product_path(product) %></td>
+			<td><%= product.units %></td>
+			<td><%= number_to_currency(product.purchase_price,:precision => 2,:unit => "Ksh",:format => "%u %n") %></td>
+			<td>
+				<% if product.mass_unit_check %>
+				<%= number_with_precision((product.total_sold + product.quantity), precision: 2) %>
+				<%else%>
+				<%= number_with_precision((product.total_sold + product.quantity), precision: 0) %>
+				<%end%>
+			</td>
+			<td>
+				<% if (product.quantity == 0) %>
+				<small class = "sold_out"><strong> Sold out </strong></small>
+				<%else%>
+				<% if product.mass_unit_check %>
+				<%= number_with_precision(product.quantity, precision: 2) %>
+				<%else%>
+				<%= number_with_precision(product.quantity,precision: 0) %>
+				<%end%>
+				<%end%>
+			</td>
+			<td>
+				<% if(product.total_price == 0) %>
+				<small class = "restock"><strong> Re-stock product</strong></small>
+				<%else%>
+				<%= number_to_currency(product.total_price,:precision => 2,:unit => "Ksh",:format => "%u %n") %>
+				<%end%>
+			</td>
+			<td>
+				<% if product.mass_unit_check %>
+				<%= number_with_precision(product.total_sold,precision: 2) %>
+				<%else%>
+				<%= number_with_precision(product.total_sold, precision: 0) %>
+				<%end%>
+			</td>
+			<td><%= product.created_at.strftime("%d-%b-%Y %H:%M")%></td>
+			<td><%= number_to_currency(product.shop_price,:precision => 2,:unit => "Ksh",:format => "%u %n") %></td>
+			<td><%= number_to_currency(product.shop_price - product.purchase_price,:precision => 2,:unit => "Ksh",:format => "%u %n")%></td>
+			<td><%= number_to_currency(product.total_sold * (product.shop_price - product.purchase_price),:precision => 2,:unit => "Ksh",:format => "%u %n")%></td>
+		</tr>
+		<%end%>
+	</tbody>
+</table>
+
+<%= will_paginate @products,renderer: BootstrapPagination::Rails %>

@@ -1,16 +1,19 @@
 <div class = "form_width">
 <%= form_for(@product) do |f| %>
     <%= form_group_for f, :name do %>
-        <%= f.text_field :name ,placeholder: "Enter name of utility product", class: "form-control input-lg"%>
+        <%= f.text_field :name ,placeholder: "Enter name of the product", class: "form-control input-lg"%>
     <%end%>
     <%= form_group_for f, :product_type do %>
-        <%= f.text_field :product_type, placeholder: "Enter the type of product",class: "form-control input-lg"  %> 
+        <%= f.text_field :product_type, placeholder: "Kitchen product,cereals,electricals",class: "form-control input-lg"  %> 
     <%end%>
     <%= form_group_for f, :units do %>
-        <%= f.text_field :units,placeholder: "Example bottles,pairs,pieces,1kg blueband", class: "form-control input-lg" %>
+        <%= f.text_field :units,placeholder: "Example KG,bottles,pairs,pieces,1kg blueband container", class: "form-control input-lg" %>
+    <%end%>
+    <%= form_group_for f, :mass_unit_check do %>
+        <%= f.check_box :mass_unit_check, class: "input-lg" %>
     <%end%>
     <%= form_group_for f, :quantity do %>
-        <%= f.text_field :quantity,placeholder: "Whole number count example 10 ", class: "form-control input-lg"%>
+        <%= f.text_field :quantity,placeholder: "Enter a numeric figure ", class: "form-control input-lg"%>
     <%end%>
     <%= form_group_for f, :purchase_price do %>
         <%= f.text_field :purchase_price,placeholder: "buying price for each item",class: "form-control input-lg" %>

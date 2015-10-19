@@ -1,5 +1,17 @@
 <div class = "orderform-width">
   <%= form_for(@order) do |f| %>
+    <% if @order.errors.any? %>
+    <div class = "alert alert-danger">
+      <p><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</p>
+
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+
     <%= form_group_for f, :cash_paid do %>
        <%= f.text_field :cash_paid,placeholder: "Enter amount from  customer to get the change", class: "form-control input-lg" %>
     <%end%>

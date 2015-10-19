@@ -48,8 +48,6 @@ class Admin::BaseController < ApplicationController
 		@total_orders = Array(@orders).sum { |order| order.order_price }
 	end
 
-	def purchases
-		@products = ::Product.all.paginate(:page => params[:page],:per_page => 10).order("created_at DESC")
-	end
+
 
 end

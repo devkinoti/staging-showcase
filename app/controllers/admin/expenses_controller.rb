@@ -3,7 +3,8 @@ class Admin::ExpensesController < ApplicationController
 	before_action :find_expense, :only => [:edit,:update,:destroy]
 	layout "admin/admin"
 	def index
-		@expenses = Expense.all.paginate(:page => params[:page],:per_page => 10).order("created_at DESC")
+		@search = Expense.search(params[:q])
+		@expenses = @search.result.all.paginate(:page => params[:page],:per_page => 10).order("created_at DESC")
 		@total_expenses = Expense.sum("amount")
 		gon.expenses_account = Expense.all.pluck("account_type")
 		gon.expenses_amount = Expense.all.pluck("amount")

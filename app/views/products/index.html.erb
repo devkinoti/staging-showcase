@@ -39,7 +39,13 @@
       <td><%= product.name %></td>
       <td><%= product.product_type %></td>
       <td><%= product.units %></td>
-      <td><%= product.quantity %></td>
+      <td>
+        <% if product.mass_unit_check %>
+        <%= number_with_precision(product.quantity, precision: 2) %>
+        <%else%>
+        <%= number_with_precision(product.quantity, precision: 0) %>
+        <%end%>
+      </td>
       <td><%= number_to_currency(product.purchase_price,:precision => 2,:unit => "Ksh",:format => "%u %n") %></td>
       <td><%= number_to_currency(product.total_price,:precision => 2,:unit => "Ksh",:format => "%u %n") %></td>
       <td><%= number_to_currency(product.shop_price,:precision => 2,:unit => "Ksh",:format => "%u %n") %></td>
