@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do 
-        pdf = OrderPdf.new(@order,view_context,current_user)
+        pdf = OrderPdf.new(@order,view_context)
         send_data pdf.render,:filename => "order_#{@order.id}",
                              :type => "application/pdf"
       end
@@ -44,6 +44,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.add_line_items_from_cart(@cart)
+    @order.user = current_user
 
     respond_to do |format|
       if @order.save
