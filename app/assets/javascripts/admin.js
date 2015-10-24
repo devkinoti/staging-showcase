@@ -7,6 +7,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require Chart
+//= require growlyflash
 
 
 

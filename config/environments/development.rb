@@ -14,7 +14,17 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    address: "smtp.mandrillapp.com",
+    port: 25,
+    enable_starttls_auto: true,
+    user_name: "devkinoti@gmail.com",
+    password: "1MMPsM9T1AmaPAM6p-wDIg",
+    authentication: 'plain'
+  }
 
   config.action_mailer.default_url_options = { host: 'localhost',port: 3000 }
 

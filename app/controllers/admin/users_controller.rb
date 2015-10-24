@@ -12,6 +12,7 @@ class Admin::UsersController < Admin::BaseController
   def create
   	@user = User.new(user_params)
   	if @user.save
+      UserMailer.signup_confirmation(@user).deliver
   		flash[:notice] = "User created successfully"
   		redirect_to admin_users_path
   	else
