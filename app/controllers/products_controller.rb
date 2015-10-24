@@ -9,6 +9,12 @@ class ProductsController < ApplicationController
     @search = Product.search(params[:q])
     @products = @search.result.all.paginate(:page => params[:page],:per_page => 10).order("created_at DESC")
     @total_sum = Product.sum("quantity * purchase_price")
+    @csv_products = Product.all.order("created_at DESC")
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @csv_products.to_csv, :filename => "products-#{Time.current.strftime("%d-%b-%Y")}.csv"}
+    end
   end
 
   # GET /products/1

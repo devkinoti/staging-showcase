@@ -28,6 +28,17 @@ class Product < ActiveRecord::Base
 		end
 	end
 
+	def self.to_csv
+		attributes = %w{id name product_type units quantity purchase_price shop_price mass_unit_check created_at updated_at }
+		CSV.generate(headers: true) do |csv| 
+			csv << attributes
+
+			all.each do |product|
+				csv << product.attributes.values_at(*attributes)
+			end
+		end
+	end
+
 	private
 
 	def ensure_not_referenced_by_any_line_item
