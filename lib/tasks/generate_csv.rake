@@ -2,7 +2,7 @@ namespace :csv_export do
 	desc "creates csv export of products table"
 	task :products => :environment do 
 		csv_products = Product.all.order("created_at DESC")
-		save_path = Rails.root.join('public','csv',"products-#{Time.current.strftime("%d-%b-%Y")}.csv")
+		save_path = Rails.root.join('public','csv',"products.csv")
 		File.open(save_path, 'wb') do |file|
 			file.write(csv_products.to_csv)
 		end
