@@ -80,6 +80,11 @@ class OrdersController < ApplicationController
     end
   end
 
+  def import
+    Order.import(params[:file])
+    redirect_to import_url, notice: "Orders Imported successfully"
+  end
+
   # DELETE /orders/1
   # DELETE /orders/1.json
   def destroy

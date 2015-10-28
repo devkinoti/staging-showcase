@@ -13,13 +13,25 @@ Rails.application.routes.draw do
 
   devise_for :users
   resource :dashboard, only: [:show]
+  resource :import,only: [:show,:products,:line_items,:orders] do 
+    collection { get :products }
+    collection { get :line_items }
+    collection { get :orders }
+  end
+
   resource :store, only: [:show] do 
     collection { get :search, to: "stores#show"} 
   end
-  resources :products
+  resources :products do 
+    collection { post :import }
+  end
+
   resources :carts
-  resources :orders
+  resources :orders do 
+    collection { post :import }
+  end
   resources :line_items do
+    collection { post :import }
     put 'decrement',on: :member
     put 'decrement_mass_product', on: :member
   end

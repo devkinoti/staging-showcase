@@ -6,9 +6,9 @@ class Product < ActiveRecord::Base
 
 	validates :product_type, presence: true
 	validates :units, presence: true
-	validates :quantity, presence: true, numericality: { greater_than_or_equal_to: 0.01}
-	validates :purchase_price, presence: true, numericality: { greater_than_or_equal_to: 0.01}
-	validates :shop_price, presence: true, numericality: { greater_than_or_equal_to: 0.01}
+	validates :quantity, presence: true, numericality: { greater_than_or_equal_to: 0.00}
+	validates :purchase_price, presence: true, numericality: { greater_than_or_equal_to: 0.00}
+	validates :shop_price, presence: true, numericality: { greater_than_or_equal_to: 0.00}
 
 
 	def total_price
@@ -36,6 +36,15 @@ class Product < ActiveRecord::Base
 			all.each do |product|
 				csv << product.attributes.values_at(*attributes)
 			end
+		end
+	end
+
+	def self.import(file)
+		attributes = %w{id name product_type units quantity purchase_price shop_price mass_unit_check created_at updated_at }
+		CSV.foreach(file.path, headers: true) do |row| 
+			product = find_by_id(row["id"]) || new 
+			product.attributes = row.to_hash.slice(*attributes)
+			product.save!
 		end
 	end
 

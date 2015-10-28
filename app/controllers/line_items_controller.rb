@@ -63,6 +63,11 @@ class LineItemsController < ApplicationController
     end
   end
 
+  def import
+    LineItem.import(params[:file])
+    redirect_to import_url,notice: "LineItems Imported Successfully"
+  end
+
   def decrement
     @line_item = @cart.decrease(params[:id])
     respond_to do |format|

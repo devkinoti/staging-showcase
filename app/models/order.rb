@@ -4,7 +4,7 @@ class Order < ActiveRecord::Base
     belongs_to :user
 
 	validates_with EnoughProductsValidator
-	validates :cash_paid, numericality: { only_integer: true, message: "Please enter the figure as a number" }
+	validates :cash_paid, numericality: { greater_than_or_equal_to: 0.00, message: "Please enter the figure as a number" }
 	
 	after_create :calculate_stock
 
@@ -37,6 +37,15 @@ class Order < ActiveRecord::Base
     def self.total_grouped_by_month(start)
     	orders = where(created_at: start.beginning_of_month..Time.zone.now).where(:paid => true).group("orders.id, created_at")
     	orders.group_by { |order| order.created_at.to_date.month }
+    end
+
+    def self.import(file)
+        attributes = %w{id paid created_at updated_at cash_paid user_id }
+        CSV.foreach(file.path,headers: true) do |row| 
+            order = find_by_id(row["id"]) || new 
+            order.attributes = row.to_hash.slice(*attributes)
+            order.save!
+        end
     end
 
 
