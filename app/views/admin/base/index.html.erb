@@ -1,6 +1,6 @@
 <div class = "panel panel-default">
 	<div class = "panel-body">
-		<h2>Superior Base Services Retail shop</h2>
+		<h2>Staging Company Retail shop</h2>
 		<p><%= Time.current.strftime("%d-%b-%Y") %></p>
 	</div>
 </div>
@@ -12,14 +12,12 @@
     <h3 class="panel-title">Total Expenses</h3>
   </div>
   <div class="panel-body">
-    <canvas height="450" id="canvas_expenses" width="900"></canvas>
-    <div id="legend"></div>
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">Expenses Summary</h3>
       </div>
       <div class="panel-body">
-        <h4><%= number_to_currency(@total_expenses,:precision => 2,:unit => "Ksh",:format => "%u %n") %></h4>
+        <h4><%= number_to_currency(@total_expenses,:precision => 2,:format => "%u %n") %></h4>
       </div>
     </div>
   </div>
@@ -36,7 +34,7 @@
         <h3 class="panel-title">Total Value of all Income</h3>
       </div>
       <div class="panel-body">
-        <h4><strong><%= number_to_currency(@total_income,:precision => 2,:unit => "Ksh",:format => "%u %n") %></strong></h4>
+        <h4><strong><%= number_to_currency(@total_income,:precision => 2,:format => "%u %n") %></strong></h4>
       </div>
     </div>
   </div>
@@ -54,9 +52,9 @@
       </div>
       <div class="panel-body">
         <% if @profit > 0 %>
-        <h4 id = "profit"><strong><span> Profit </span><%= number_to_currency(@profit,:precision => 2,:unit => "Ksh",:format => "%u %n") %></strong></h4>
+        <h4 id = "profit"><strong><span> Profit </span><%= number_to_currency(@profit,:precision => 2,:format => "%u %n") %></strong></h4>
         <% else %>
-        <h4 id = "loss"><strong><span> Loss </span><%= number_to_currency(@profit,:precision => 2,:unit => "Ksh",:format => "%u %n") %></strong></h4>
+        <h4 id = "loss"><strong><span> Loss </span><%= number_to_currency(@profit,:precision => 2,:format => "%u %n") %></strong></h4>
         <%end%>
       </div>
     </div>

@@ -55,7 +55,7 @@
 						</li>
 					</ul>
 					<%else%>
-					<h4><%= number_to_currency(product.shop_price,:precision => 2,:unit => "Ksh",:format => "%u %n") %></h4>
+					<h4><%= number_to_currency(product.shop_price,:precision => 2,:format => "%u %n") %></h4>
 					<% if product.mass_unit_check %>
 					<%= form_tag line_items_path, remote: true do %>
 					<%= text_field_tag :quantity %>

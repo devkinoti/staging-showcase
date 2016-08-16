@@ -4,7 +4,7 @@
 	<tr>
 	<%end%>
 	<td><%= line_item.product.name %>  &times; <%= line_item.quantity %></td>
-	<td><%= number_to_currency(line_item.total_price,:precision => 2,:unit => "Ksh",
+	<td><%= number_to_currency(line_item.total_price,:precision => 2,
 				:format => "%u %n") %></td>
 	<td>
 		<% if line_item.product.mass_unit_check %>

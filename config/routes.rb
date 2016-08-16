@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   	resources :users
     resources :expenses
   end
-
-  root to: 'welcome#index', via: :get
+  devise_scope :user do 
+    root to: "devise/sessions#new"
+  end
+  
 
   devise_for :users
   resource :dashboard, only: [:show]

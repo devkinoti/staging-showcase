@@ -12,11 +12,9 @@ class OrderPdf < Prawn::Document
 	end
 
 	def title
-		text "Superior Base Services LTD",size: 30,style: :bold
+		text "Staging Company Sample",size: 30,style: :bold
 		move_down 10
-		text "P.O Box 18413-00100"
-		text "Nairobi"
-		text "+254775456876"
+		text "Sample Address"
 	end
 
 	def thanks
@@ -58,6 +56,6 @@ class OrderPdf < Prawn::Document
 	end
 
 	def price(num)
-		@view.number_to_currency(num,:precision => 2, :unit => "Ksh",:format => "%u %n")
+		@view.number_to_currency(num,:precision => 2,:format => "%u %n")
 	end
 end

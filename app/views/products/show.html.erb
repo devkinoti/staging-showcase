@@ -25,9 +25,9 @@
         <%= number_with_precision(@product.quantity, precision: 0) %>
         <%end%>
       </li>
-      <li class = "list-group-item"><strong>Shop price: </strong><%= number_to_currency(@product.shop_price,:precision => 2,:unit => "KES",:format => "%u %n") %></li>
-      <li class = "list-group-item"><strong>Purchase Price: </strong><%= number_to_currency(@product.purchase_price,:precision => 2,:unit => "KES",:format => "%u %n")%></li>
-      <li class = "list-group-item"><strong>Total Purchase price: </strong><%= number_to_currency(@product.total_price,:precision => 2,:unit => "KES",:format => "%u %n") %></li>
+      <li class = "list-group-item"><strong>Shop price: </strong><%= number_to_currency(@product.shop_price,:precision => 2,:format => "%u %n") %></li>
+      <li class = "list-group-item"><strong>Purchase Price: </strong><%= number_to_currency(@product.purchase_price,:precision => 2,:format => "%u %n")%></li>
+      <li class = "list-group-item"><strong>Total Purchase price: </strong><%= number_to_currency(@product.total_price,:precision => 2,:format => "%u %n") %></li>
     </ul>
   </div>
 </div>

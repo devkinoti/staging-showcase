@@ -35,7 +35,7 @@
 		<tr>
 			<td><%= link_to product.name , product_path(product) %></td>
 			<td><%= product.units %></td>
-			<td><%= number_to_currency(product.purchase_price,:precision => 2,:unit => "Ksh",:format => "%u %n") %></td>
+			<td><%= number_to_currency(product.purchase_price,:precision => 2,:format => "%u %n") %></td>
 			<td>
 				<% if product.mass_unit_check %>
 				<%= number_with_precision((product.total_sold + product.quantity), precision: 2) %>
@@ -58,7 +58,7 @@
 				<% if(product.total_price == 0) %>
 				<small class = "restock"><strong> Re-stock product</strong></small>
 				<%else%>
-				<%= number_to_currency(product.total_price,:precision => 2,:unit => "Ksh",:format => "%u %n") %>
+				<%= number_to_currency(product.total_price,:precision => 2,:format => "%u %n") %>
 				<%end%>
 			</td>
 			<td>
@@ -69,9 +69,9 @@
 				<%end%>
 			</td>
 			<td><%= product.created_at.strftime("%d-%b-%Y %H:%M")%></td>
-			<td><%= number_to_currency(product.shop_price,:precision => 2,:unit => "Ksh",:format => "%u %n") %></td>
-			<td><%= number_to_currency(product.shop_price - product.purchase_price,:precision => 2,:unit => "Ksh",:format => "%u %n")%></td>
-			<td><%= number_to_currency(product.total_sold * (product.shop_price - product.purchase_price),:precision => 2,:unit => "Ksh",:format => "%u %n")%></td>
+			<td><%= number_to_currency(product.shop_price,:precision => 2,:format => "%u %n") %></td>
+			<td><%= number_to_currency(product.shop_price - product.purchase_price,:precision => 2,:format => "%u %n")%></td>
+			<td><%= number_to_currency(product.total_sold * (product.shop_price - product.purchase_price),:precision => 2,:format => "%u %n")%></td>
 		</tr>
 		<%end%>
 	</tbody>

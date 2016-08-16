@@ -17,8 +17,8 @@
 		<tr>
 			<td><%= item.product.name %></td>
 			<td><%= item.quantity %></td>
-			<td><%= number_to_currency(item.product.shop_price,:precision => 0,:unit => "Ksh",:format => "%u %n") %></td>
-			<td><%= number_to_currency(item.total_price,:precision => 0,:unit => "Ksh",:format => "%u %n") %></td>
+			<td><%= number_to_currency(item.product.shop_price,:precision => 0,:format => "%u %n") %></td>
+			<td><%= number_to_currency(item.total_price,:precision => 0,:format => "%u %n") %></td>
 			<td><% if @order.paid %> 
 				<strong><p id = "paid">Paid</p></strong>
 				<%else%>

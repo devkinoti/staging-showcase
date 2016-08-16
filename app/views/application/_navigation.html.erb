@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid"> 
     <div class = "navbar-header">
-      <p class = "navbar-brand">Superior Base Services LTD</p>
+      <p class = "navbar-brand">Staging Sample Company</p>
     </div>
       <ul class = "nav navbar-nav">
         <% if user_signed_in? %>
@@ -13,10 +13,7 @@
             <li><%= link_to "Products Inventory", products_path %></li>
             <li role="separator" class="divider"></li>
             <li><%= link_to "View all orders", orders_path %></li>
-            <%= admins_only do %>
-            <li role="separator" class="divider"></li>
-            <li><%= link_to "Import Records",import_path %></li>
-            <%end%>
+
           </ul>
 
         </li>
