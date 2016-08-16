@@ -29,7 +29,7 @@ gem 'rails_12factor', group: :production
 gem 'thin', group: [:development, :production]
 #auth
 gem 'devise'
-gem 'chart-js-rails'
+gem 'chart-js-rails','0.0.9'
 gem 'prawn'
 gem 'prawn-table'
 gem 'will_paginate', '~> 3.0.6'

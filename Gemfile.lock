@@ -176,7 +176,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
-  chart-js-rails
+  chart-js-rails (= 0.0.9)
   coffee-rails (~> 4.0.0)
   devise
   gon
