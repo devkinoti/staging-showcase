@@ -69,38 +69,38 @@ console.log(gon.daily_income_dates);
 console.log(gon.monthly_profits);
 console.log(gon.profit_loss_months);
 
-jQuery(function() {
-    var data = [],
-        my_doughnut_expenses_chart;
+// jQuery(function() {
+//     var data = [],
+//         my_doughnut_expenses_chart;
 
-    function Data(value, label, color, highlight) {
-        this.value = value;
-        this.label = label;
-        this.color = color;
-        this.highlight = highlight;
-    }
+//     function Data(value, label, color, highlight) {
+//         this.value = value;
+//         this.label = label;
+//         this.color = color;
+//         this.highlight = highlight;
+//     }
 
-    function shadeColor2(color, percent) {
-        var f = parseInt(color.slice(1), 16),
-            t = percent < 0 ? 0 : 255,
-            p = percent < 0 ? percent * -1 : percent,
-            R = f >> 16,
-            G = f >> 8 & 0x00FF,
-            B = f & 0x0000FF;
-        return "#" + (0x1000000 + (Math.round((t - R) * p) + R) * 0x10000 + (Math.round((t - G) * p) + G) * 0x100 + (Math.round((t - B) * p) + B)).toString(16).slice(1);
-    }
+//     function shadeColor2(color, percent) {
+//         var f = parseInt(color.slice(1), 16),
+//             t = percent < 0 ? 0 : 255,
+//             p = percent < 0 ? percent * -1 : percent,
+//             R = f >> 16,
+//             G = f >> 8 & 0x00FF,
+//             B = f & 0x0000FF;
+//         return "#" + (0x1000000 + (Math.round((t - R) * p) + R) * 0x10000 + (Math.round((t - G) * p) + G) * 0x100 + (Math.round((t - B) * p) + B)).toString(16).slice(1);
+//     }
 
-    for (var i = 0; i < gon.expenses_account.length; i++) {
-        var pie_data = new Data(gon.expenses_amount[i], gon.expenses_account[i], shadeColor2("FF0000", (i + 0.05)), shadeColor2("5AD3D1", 0));
-        data.push(pie_data);
-    }
+//     for (var i = 0; i < gon.expenses_account.length; i++) {
+//         var pie_data = new Data(gon.expenses_amount[i], gon.expenses_account[i], shadeColor2("FF0000", (i + 0.05)), shadeColor2("5AD3D1", 0));
+//         data.push(pie_data);
+//     }
 
-    // return my_doughnut_expenses_chart = new Chart($("#canvas_expenses").get(0).getContext("2d")).Doughnut(data,{
-    //   animationEasing : "easeOutQuart",
-    //   tooltipTemplate: "<%if (label){%><%= label%>: <%}%>Ksh <%= value %>"
-    // });
+//     // return my_doughnut_expenses_chart = new Chart($("#canvas_expenses").get(0).getContext("2d")).Doughnut(data,{
+//     //   animationEasing : "easeOutQuart",
+//     //   tooltipTemplate: "<%if (label){%><%= label%>: <%}%>Ksh <%= value %>"
+//     // });
 
-});
+// });
 
 
 
