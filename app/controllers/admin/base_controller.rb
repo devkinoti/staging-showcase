@@ -7,8 +7,8 @@ class Admin::BaseController < ApplicationController
 		@total_expenses = Expense.sum("amount")
 		@orders = ::Order.all.where(:paid => true)
 		@total_inventory = ::Product.sum("quantity * purchase_price")
-		# gon.expenses_account = Expense.all.pluck("account_type")
-		# gon.expenses_amount = Expense.all.pluck("amount")
+		gon.expenses_account = Expense.all.pluck("account_type")
+		gon.expenses_amount = Expense.all.pluck("amount")
 		@total_income = Array(@orders).sum { |order| order.order_price }
 
 		@profit = @total_income - @total_expenses
