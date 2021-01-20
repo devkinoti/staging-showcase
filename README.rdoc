@@ -1,28 +1,21 @@
-== README
+== Product Management Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a product management application built on rails.
 
-Things you may want to cover:
+Replicates an inventory management workflow within a small brick and mortar business dealing with physical goods.
 
-* Ruby version
+The app captures data stored in partial fractions or as a whole single unit
 
-* System dependencies
+All products and their purchases can be managed through the app
 
-* Configuration
+Keeps track of 
+-profits
+-expenses
+-orders
+-users
+-liabilities
 
-* Database creation
+Manages user access to different parts of the application
 
-* Database initialization
+Enables the user to create pdf documents of all existing orders,product listings and expenses
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
