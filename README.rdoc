@@ -9,11 +9,11 @@ The app captures data stored in partial fractions or as a whole single unit
 All products and their purchases can be managed through the app
 
 Keeps track of 
--profits
--expenses
--orders
--users
--liabilities
+--profits
+--expenses
+--orders
+--users
+--liabilities
 
 Manages user access to different parts of the application
 
